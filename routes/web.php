@@ -26,3 +26,9 @@ Route::group(['prefix' => 'auth'], function () {
     Route::get('/{provider}', 'Auth\LoginController@redirectToProvider');
     Route::get('/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 });
+//Controller to profile view
+Route::get('/profile_details', 'Profile_DetailsController@details')->name('Pdetails');
+Route::get('/profile_edit','Profile_EditController@edit')->name('Eprofile');
+
+//Controllers to upload images
+Route::get('/upload','Upload_ImagesController@upload')->name('Upload');
