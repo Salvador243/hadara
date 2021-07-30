@@ -2,12 +2,11 @@
 @section('content')
 {{-- profile_details --}}
 <div class="container-fluid mt-4">
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-{{-- end details container--}}	
+	@guest
+		<p>es un invitado, debe registrarse para ver las opciones</p>
+	@else
+		<h3>nombre: {{ Auth::user()->name }} </h3>
+		<h3>email: {{ Auth::user()->password }}</h3>
+	@endguest
 </div>
 @endsection
