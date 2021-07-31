@@ -29,4 +29,4 @@ Route::get('/profile_edit','Profile_EditController@edit')->name('Eprofile');
 Route::get('/upload','Upload_ImagesController@upload')->name('Upload');
 
 //Controller to picture's details
-Route::get('/picture_details', 'PictureDetailsController@showView')->name('picture_details');
+Route::get('/picture_details/{id}', 'PictureDetailsController@showView')->name('picture_details');

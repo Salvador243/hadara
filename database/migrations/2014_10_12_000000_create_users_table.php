@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('avatar')->nullable();
             $table->boolean('enableSignature')->default(0);
-            $table->boolean('signature')->nullable();
+            $table->string('signature')->nullable();
             $table->string('password');
             $table->string('provider');
             $table->string('provider_id')->nullable();
