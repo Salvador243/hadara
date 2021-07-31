@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Picture;
 
 class HomeController extends Controller
 {
     /**
-     * Show the application dashboard.
+     * Show the index page with all the pictures
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */

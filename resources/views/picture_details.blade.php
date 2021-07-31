@@ -13,7 +13,7 @@
             <div class="col-10 card-body m-0 p-1 align-self-center">
                 <h5 class="card-title">Nombre de usuario</h5>
                 <p class="card-text">Firma</p>
-                <a href="#" class="btn btn-primary">View Profile</a>
+                <a href="{{ route('Pdetails') }}" class="btn btn-primary">View Profile</a>
             </div>
         </div>
     </div>
