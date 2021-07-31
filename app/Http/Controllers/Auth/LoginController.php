@@ -68,11 +68,13 @@ class LoginController extends Controller
             abort(403, 'Unauthorized action.');
             return redirect()->to('/');
         }
+
         $attributes = [
             'provider' => $provider,
             'provider_id' => $user->getId(),
             'name' => $user->getName(),
             'email' => $user->getEmail(),
+            'avatar' => $user->getAvatar(),
             'password' => isset($attributes['password']) ? $attributes['password'] : bcrypt(Str::random(16))
 
         ];
