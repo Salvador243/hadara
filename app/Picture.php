@@ -3,16 +3,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-
 class Picture extends Model
 {
-    use HasFactory;
 
     protected $fillable = [
         'user_id', 'path', 'title', 'description',
     ];
 
+    /**
+     * Model's relationships
+     */
     public function user(){
         return $this->belongsTo(User::class);
     }
@@ -20,4 +20,6 @@ class Picture extends Model
     public function comments(){
         return $this->hasMany(Comment::class);
     }
+
+
 }

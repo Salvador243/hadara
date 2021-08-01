@@ -16,7 +16,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'provider', 'provider_id',
+        'name', 'email', 'avatar', 'password', 'provider', 'provider_id',
+        'enableSignature', 'signature',
     ];
 
     /**
@@ -37,6 +38,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Model's relationships
+     */
+    public function pictures(){
+        return $this->hasMany(Picture::class);
+    }
+
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
+
+    /**
+     * Role's functions
+     */
     public function isAdmin()
     {
         return $this->is_admin;

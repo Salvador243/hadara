@@ -12,14 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('index');
 
 //Google Login
 Route::group(['prefix' => 'auth'], function () {
@@ -36,4 +31,4 @@ Route::patch('/profile_edit/{email}','Profile_EditController@update')->name('upd
 Route::get('/upload','Upload_ImagesController@upload')->name('Upload');
 
 //Controller to picture's details
-Route::get('/picture_details', 'PictureDetailsController@showView')->name('picture_details');
+Route::get('/picture_details/{id}', 'PictureDetailsController@showView')->name('picture_details');
