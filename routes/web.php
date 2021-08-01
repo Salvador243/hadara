@@ -24,9 +24,9 @@ Route::group(['prefix' => 'auth'], function () {
 //Controller to profile view
 Route::get('/profile_details', 'Profile_DetailsController@details')->name('Pdetails');
 //Controller to return the data of the user
-Route::get('/profile_edit/{email}','Profile_EditController@edit')->name('Eprofile');
-Route::patch('/profile_edit/{email}','Profile_EditController@update')->name('update');
-
+Route::post('/profile_edit/{email}','Profile_EditController@edit')->name('Eprofile');
+//controller to updating our data
+Route::patch('/profile_update','Profile_EditController@update')->name('update.data');
 //Controllers to upload images
 Route::get('/upload','Upload_ImagesController@upload')->name('Upload');
 

@@ -1,25 +1,90 @@
 @extends('layouts.app')
 @section('content')
 {{--container principal--}}
-<div class="container-fluid mt-4">
-	@guest
-		<h1 class="text-primary">debe loguarse antes</h1>
-	@else	
-	
-	<form action="{{Route('update','salvador')}}" method="post" accept-charset="utf-8">
+<div class="container my-3">
+	<form action="{{route('update.data')}}" method="post">
 		@csrf
-		@method('patch')
+		@method('PATCH')
 
-		<input type="text" name="name" value="{{ Auth::user()->name}}">		
-		<input type="text" name="name" value="{{ Auth::user()->email}}">		
-		<input type="text" name="name" value="{{ Auth::user()->firma}}">		
-		<input type="text" name="name" value="{{ Auth::user()->avatar}}">		
-		<input type="text" name="name" value="{{ Auth::user()->birthday}}">		
+		@foreach($user as $data)
+		<div class="card mt-4">
+			<div class="row col-md-8">
+				<img class="col-md-2 rounded-circle" src="{{$data->avatar}}"> 
+				<div class="form-group">
+					<label for="exampleFormControlFile1">Cambiar foto</label>
+					<input type="file" class="form-control-file" name="avatar">
+				</div>
+			</div>
+
+		</div>
+
+		<div class="input-group mt-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="basic-addon1">Nombre</span>
+			</div>
+			<input type="text" class="form-control" value="{{$data->name}}" name="name">
+		</div>
+
+		<div class="input-group mt-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="basic-addon1">Correo Electronico</span>
+			</div>
+			<input type="email" class="form-control" value="{{$data->email}}" name="email">
+		</div>
+		@if($data->enableSignature == 1)
+
+		<div class="input-group mt-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="basic-addon1">Firma</span>
+			</div>
+			<input type="text" class="form-control" value="{{$data->signature}}" name="signature">
+		</div>
+		@else
+
+		<div class="card">
+			<label for="">Desea crear una firma?</label>
+			<div class="form-check">
+				<input class="form-check-input" type="radio" name="exampleRadios" id="si" value="option1">
+				<label class="form-check-label" for="exampleRadios1">
+					Si
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="radio" name="exampleRadios" id="no" value="option2" checked>
+				<label class="form-check-label" for="exampleRadios2">
+					No
+				</label>
+			</div>
+		</div>
+
+		<div id="insert"></div>
+
+		@endif
+		@endforeach
 		<button type="submit">Actualizar</button>
-	</form>
+	</div>
+</form>
 
-	@endguest
 
-	{{--end container principal--}}
-</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready( function(){
+		$("#si").on('click', function(){
+			$("#insert").html(`
+				<div id="firma" class="input-group mt-3">
+				<div class="input-group-prepend">
+				<span class="input-group-text" id="basic-addon1">Firma</span>
+				</div>
+				<input name="signature" type="text" class="form-control" value="">
+				</div>
+				`);
+			$("#no").click(function(){
+				$("#firma").remove();
+			});
+		});
+	});
+
+
+</script>
 @endsection	
