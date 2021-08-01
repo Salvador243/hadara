@@ -2,14 +2,14 @@
 @section('content')
 {{--container principal--}}
 <div class="container my-3">
-	<form action="{{route('update.data')}}" method="post">
+	<form action="{{route('update.data')}}" method="post" enctype="multipart/form-data">
 		@csrf
 		@method('PATCH')
 
 		@foreach($user as $data)
 		<div class="card mt-4">
-			<div class="row col-md-8">
-				<img class="col-md-2 rounded-circle" src="{{$data->avatar}}"> 
+			<div class="row">
+				<img class="img-thumbnail" src="{{ asset('storage/avatar_profiles/'.$data->avatar)}}"> 
 				<div class="form-group">
 					<label for="exampleFormControlFile1">Cambiar foto</label>
 					<input type="file" class="form-control-file" name="avatar">
@@ -44,13 +44,13 @@
 		<div class="card">
 			<label for="">Desea crear una firma?</label>
 			<div class="form-check">
-				<input class="form-check-input" type="radio" name="exampleRadios" id="si" value="option1">
+				<input class="form-check-input" type="radio" id="si" value="option1">
 				<label class="form-check-label" for="exampleRadios1">
 					Si
 				</label>
 			</div>
 			<div class="form-check">
-				<input class="form-check-input" type="radio" name="exampleRadios" id="no" value="option2" checked>
+				<input class="form-check-input" type="radio" id="no" value="option2" checked>
 				<label class="form-check-label" for="exampleRadios2">
 					No
 				</label>
@@ -61,7 +61,7 @@
 
 		@endif
 		@endforeach
-		<button type="submit">Actualizar</button>
+		<button  class="btn btn-dark mt-4" type="submit">Actualizar</button>
 	</div>
 </form>
 

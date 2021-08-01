@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use function PHPUnit\Framework\isEmpty;
 
 class Profile_EditController extends Controller
@@ -18,22 +19,27 @@ class Profile_EditController extends Controller
     }
 
     public function update(Request $datos){
-        if(request('avatar') != null ){
-            User::where('email','=',request('email'))->update([
-                'avatar' => request('avatar')
-            ]);
+        $modify = $datos->all();
+        $modify = request()->except(['_token','_method']);
+    
+        if ($datos->hasFile('avatar')) {
+            $image = $datos->file('avatar');
+            $destination_path = public_path('storage/avatar_profiles');
+            $image_name = $image->getClientOriginalName();
+            $path = $datos->avatar->move($destination_path, $image_name);
+            $modify['avatar'] = $image_name;
         }
-        if(request('signature') != null ){
-            User::where('email','=',request('email'))->update([
-               'enableSignature' => '1',
-               'signature' => request('signature')
-            ]);
+        if($datos->signature == null){
+            DB::table('users')
+            ->where('email','=',$datos->email)
+            ->update(['enableSignature' => 0,]);
+        }else{
+            DB::table('users')
+               ->where('email','=',$datos->email)
+               ->update(['enableSignature' => 1,]);
         }
-
-      User::where('email','=',request('email'))->update([
-         'name' => request('name'),
-         'email' => request('email')
-      ]);
+        (new \App\User)->where('email','=',$modify['email'])->update($modify);
+        
       return redirect()->route('Pdetails');
     }
 }
