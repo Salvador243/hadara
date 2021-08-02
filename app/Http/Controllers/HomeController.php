@@ -13,8 +13,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index(Request $request) {
-        //Get the type of result that will return
+    public function index() {
+        return view('index');        
+    }
+
+    public function search(Request $request){
         $results;
         $type = 1;
 
@@ -27,9 +30,6 @@ class HomeController extends Controller
             ->get();
         }
 
-        return view('index')->with([
-            'results' => $results,
-            'type' => $type,
-        ]);        
+        echo(json_encode([$results, $type]));
     }
 }

@@ -97,7 +97,7 @@
 
         <!--Search bar-->
         <div class="container my-2" id="search_input" style="display:none">
-            <form action="{{ route('index') }}" method="GET" class="form-group form-inline">
+            <form action="{{ route('index') }}" method="GET" id="search-form" class="form-group form-inline">
                 <!--Input-->
                 <input type="search" name="search" class="form-control flex-fill" placeholder="Search pictures or profiles..."/>
                 <!--Dropdown (Settings)-->
@@ -145,7 +145,6 @@
             });
         });
     });
-
 </script>
 
 </html>
