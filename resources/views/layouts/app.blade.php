@@ -83,7 +83,7 @@
                     @endguest
                     <!--Search option-->
                     <li class="nav-item">
-                        <button type="button" class="btn btn-labeled" id="search">
+                        <button type="button" class="btn btn-labeled" id="search_button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-search" viewBox="0 0 16 16">
                                 <path
@@ -96,10 +96,10 @@
         </nav>
 
         <!--Search bar-->
-        <div class="container my-2" id="search_input" style="display:none">
+        <div class="container my-2" id="search_container" style="display:none">
             <form action="{{ route('index') }}" method="GET" id="search-form" class="form-group form-inline">
                 <!--Input-->
-                <input type="search" name="search" class="form-control flex-fill" placeholder="Search pictures or profiles..."/>
+                <input type="search" name="search" id="search_input" value="" class="form-control flex-fill" placeholder="Search pictures or profiles..."/>
                 <!--Dropdown (Settings)-->
                 <div class="dropdown">
                     <a id="searchDropdown" class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown"
@@ -115,13 +115,13 @@
                     <!--Options-->
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="searchDropdown">
                         <div class="form-check dropdown-item">
-                            <input class="form-check-input" type="radio" name="radioSearch" value="pictures" checked>
+                            <input class="form-check-input" type="radio" name="radioSearch" id="radio_pictures" value="pictures" checked>
                             <label class="form-check-label" for="radioPictures">
                                 Pictures
                             </label>
                         </div>
                         <div class="form-check dropdown-item">
-                            <input class="form-check-input" type="radio" name="radioSearch" value="profiles">
+                            <input class="form-check-input" type="radio" name="radioSearch" id="radio_profiles" value="profiles">
                             <label class="form-check-label" for="radioProfiles">
                                 Profiles
                             </label>
@@ -139,8 +139,8 @@
 
 <script>
     $(document).ready(function () {
-        $("#search").click(function () {
-            $('#search_input').toggle(500, function () {
+        $("#search_button").click(function () {
+            $('#search_container').toggle(500, function () {
 
             });
         });

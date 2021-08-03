@@ -6,9 +6,22 @@
 </div>
 
 <script>
+    function getQueryVariable(variable) {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+
+            if (pair[0] == variable) {
+                return pair[1];
+            }
+        }
+        return false;
+    }
+
     $(document).ready(function () {
         $("#search-form").attr('action', '/search');
-
         $("#search-form").submit(function (ev) {
             $.ajax({
                 type: $('#search-form').attr('method'),
@@ -28,13 +41,13 @@
             var str = '';
 
             //If there'no results
-            if(!results.length){
+            if (!results.length) {
                 str = `<h2 class="text-center text-muted mt-5">There's no result's to show</h2>`;
-            }else{
+            } else {
                 //If the results type are picture
-                if(type){
+                if (type) {
                     str = `<div class="row row-cols-3">`;
-                    for(let picture of results){
+                    for (let picture of results) {
                         str += `<div class="col my-3">
                                     <a href="/picture_details/${picture.id}">
                                         <img class="d-block w-100 shadow" src="${picture.path}">
@@ -42,9 +55,9 @@
                                 </div>`;
                     }
                     str += `</div>`;
-                //If the results type are profiles
-                }else{
-                    for(let profile of results){
+                    //If the results type are profiles
+                } else {
+                    for (let profile of results) {
                         str += `
                             <!--User's presentation card-->
                             <div class="card shadow mt-2">
@@ -57,7 +70,7 @@
                                     <div class="col-10 card-body m-0 p-1 align-self-center">
                                         <h5 class="card-title">${profile.name}</h5>
                         `;
-                        if(profile.enableSignature){
+                        if (profile.enableSignature) {
                             str += `
                                 <blockquote class="blockquote mb-0">
                                     <footer class="blockquote-footer">
@@ -72,35 +85,29 @@
                             </div>
                         `;
                     }
-                }  
-            }
-            $("#results").html(str);       
-        }
-
-        function getQueryVariable(variable) {
-            var query = window.location.search.substring(1);
-            var vars = query.split("&");
-            
-            for (var i=0; i < vars.length; i++) {
-                var pair = vars[i].split("=");
-                
-                if(pair[0] == variable) {
-                    return pair[1];
                 }
             }
-            
-            return false;
+            $("#results").html(str);
         }
 
-        function getPreviousSearh(){
-            if(getQueryVariable('search')){
-                $("#search").val(getQueryVariable('search'));
-                $("#radioSearch").val(getQueryVariable('radioSearch'));
+        if (getQueryVariable('radioSearch')) {
+            $("#search_input").val(getQueryVariable('search'));
+
+            if($("input[name='radioSearch']:checked").val() != getQueryVariable('radioSearch')){
+                $("#radio_pictures").prop("checked", false);
+                $("#radio_profiles").prop("checked", true);
             }
         }
 
-        getPreviousSearh();
         $("#search-form").submit();
+    });
+
+    $(window).on('load', function () {
+        if (getQueryVariable('radioSearch')) {
+            setTimeout(function () {
+                $('#search_button').click()
+            }, 100);
+        }
     });
 
 </script>
