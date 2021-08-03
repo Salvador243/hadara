@@ -37,14 +37,6 @@ class ImageController extends Controller
         $imageUpload->filename = $avatarName;
         $imageUpload->save();
 
-
-
-
-
-
-        
-
-
       //  return response()->json(['success'=>$avatarName]);
     }
 }

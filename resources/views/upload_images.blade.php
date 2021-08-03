@@ -5,21 +5,35 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.0/dropzone.js"></script>
 {{--container principal--}}
 <div class="container-fluid mt-4">
-		@guest
-		<label for="">Inicie sesion para cargar imagenes</label>
-		@else
-			<div class="container">
+	@guest
+	<label for="">Inicie sesion para cargar imagenes</label>
+	@else
+	<div class="container">
 
 		<h2>Carga tus imagenes</h2>
 
-		<form method="post" action="{{ route('dropzone.store',Auth::user()->email) }}" enctype="multipart/form-data"
-		class="dropzone" id="dropzone">
-		@csrf
+		<form method="post" action="{{ route('save',Auth::user()->email) }}" 
+			enctype="multipart/form-data">
+			@csrf
+			<div class="form-group">
+				<label for="">sube la foto</label>
+				<input type="file" class="form-control-file" name="path">
+			</div>
+
+			<div class="form-group">
+				<label for="">inserta titulo</label>
+				<input type="text" name="title">
+			</div>
+			<div class="form-group">
+				<label for="">inserta titulo</label>
+				<input type="text" name="description">
+			</div>
+			<button type="submit" class="btn btn-info">subir</button>
 		</form>
-		</div>
+	</div>
 
-		@endguest
-
+	@endguest
+{{--
 <script type="text/javascript">
 	Dropzone.options.dropzone =
 	{
@@ -40,5 +54,6 @@
 		}
 	};
 </script>
+--}}
 </div>
 @endsection	

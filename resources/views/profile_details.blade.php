@@ -17,11 +17,15 @@
 
 
 	<div class="row">
-		@foreach($pila as $image)
-		<div class="card mx-4 my-3" style="width: 18rem;">
-			<img class="card-img-top" src="{{asset('storage/files/'.$id[0]->id.'/'.$image)}}" alt="Card image cap">
+		@foreach($data as $picture)
+
+		<div class="card mx-4 my-4" style="width: 18rem;">
+			<img src="{{ asset('storage/register/'.$picture->user_id.'/'.$picture->path) }}" class="card-img-top" alt="...">
 			<div class="card-body">
-				<p class="card-text">Text example</p>
+				<h5 class="card-title">{{ $picture->title }}</h5>
+				<p class="card-text">{{ $picture->description }}</p>
+			    <a href="{{ route('picture_details', $picture->id) }}" 
+			    	class="btn btn-primary">Go somewhere</a>
 			</div>
 		</div>
 		@endforeach

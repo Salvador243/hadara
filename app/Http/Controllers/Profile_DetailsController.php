@@ -18,18 +18,25 @@ class Profile_DetailsController extends Controller
             ->where('email','=',Auth::user()->email)
             ->get();
 
-        $pila = array();
+/*        $pila = array();
         $path = public_path('storage/files/' . $id[0]->id);
         if (is_dir($path) != false) {
             $files = File::allFiles($path);
             foreach ($files as $file) {
                 array_push($pila, $file->getRelativePathname());
             }
-        }
+        }*/
+
+
+        $data = DB::table('pictures as p')
+            ->join('users as u','p.user_id','=','u.id')
+            ->select('p.*')
+            ->where('u.email','=',Auth::user()->email)
+            ->get();
+
 
         return view('profile_details',)->with([
-            'pila' => $pila,
-            'id' => $id,
+            'data' => $data,
         ]);
     }
 }

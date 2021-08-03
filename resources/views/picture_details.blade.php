@@ -10,7 +10,8 @@
         <div class="row">
             <!--Avatar-->
             <div class="col-2 d-flex justify-content-center m-0 p-0">
-                <img width="70%" class="align-self-center p-2" src="{{ $upload_user->avatar }}">
+                <img width="70%" class="align-self-center p-2" 
+                src="{{ asset('storage/avatar_profiles/'.$upload_user->avatar) }}">
             </div>
             <!--Information-->
             <div class="col-10 card-body m-0 p-1 align-self-center">
@@ -29,7 +30,8 @@
 
     <!--Picture-->
     <div class="card mt-3">
-        <img src="{{ $picture->path }}" class="card-img-top w-100">
+        <img src="{{ asset('storage/register/'.$upload_user->id.'/'.$picture->path) }}"
+         class="card-img-top w-100">
         <div class="card-body">
             <p class="card-text">{{ $picture->description }}</p>
         </div>
