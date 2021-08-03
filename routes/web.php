@@ -16,6 +16,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/search', 'HomeController@search')->name('search');
+Route::get('/addComment', 'PictureDetailsController@addComment')->name('addComment');
 
 
 //Google Login
