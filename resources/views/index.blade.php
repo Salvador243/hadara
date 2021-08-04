@@ -50,12 +50,12 @@
                     for (let picture of results) {
                         str += `<div class="col my-3">
                                     <a href="/picture_details/${picture.id}">
-                                        <img class="d-block w-100 shadow" src="${picture.path}">
+                                        <img class="d-block w-100 shadow" src="${picture.image}">
                                     </a>
                                 </div>`;
                     }
                     str += `</div>`;
-                    //If the results type are profiles
+                 //If the results type are profiles
                 } else {
                     for (let profile of results) {
                         str += `

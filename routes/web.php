@@ -36,7 +36,7 @@ Route::get('/upload','Upload_ImagesController@upload')->name('Upload');
 //Controller to picture's details
 Route::get('/picture_details/{id}', 'PictureDetailsController@showView')->name('picture_details');
 
-Route::post('/save_image/{email}', 'Upload_ImagesController@save')->name('save');
+Route::post('/save_image/', 'Upload_ImagesController@save')->name('save');
 
 
 Route::post('/dropzone/store/{email}','ImageController@store')->name('dropzone.store');

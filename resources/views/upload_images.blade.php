@@ -12,12 +12,12 @@
 
 		<h2>Carga tus imagenes</h2>
 
-		<form method="post" action="{{ route('save',Auth::user()->email) }}" 
+		<form method="post" action="{{ route('save') }}" 
 			enctype="multipart/form-data">
 			@csrf
 			<div class="form-group">
 				<label for="">sube la foto</label>
-				<input type="file" class="form-control-file" name="path">
+				<input type="file" class="form-control-file" name="img_name">
 			</div>
 
 			<div class="form-group">
@@ -25,7 +25,7 @@
 				<input type="text" name="title">
 			</div>
 			<div class="form-group">
-				<label for="">inserta titulo</label>
+				<label for="">inserta descripcion</label>
 				<input type="text" name="description">
 			</div>
 			<button type="submit" class="btn btn-info">subir</button>

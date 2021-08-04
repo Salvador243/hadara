@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use App\Picture;
 
 class Upload_ImagesController extends Controller
@@ -14,27 +15,26 @@ class Upload_ImagesController extends Controller
         return view('upload_images');
     }
 
-    public function save(Request $data, $email){
-
-        $aux = $data->except(['_token']);
-        $id = DB::table('users')
-            ->select('id')
-            ->where('email','=',$email)
-            ->get();
+    public function save(Request $request){
+        $id = Auth::user()->id;        
         
-        $aux = $data->all() + ['user_id' => $id[0]->id];
-
-        if ($data->hasFile('path')) {
-            $image = $data->file('path');
-            $destination_path = public_path('storage/register/'.$id[0]->id);
-            $image_name = $image->getClientOriginalName();
-            $path = $data->path->move($destination_path, $image_name);
-            $aux['path'] = $image_name;
+        $image_name = '';
+        if ($request->hasFile('img_name')) {
+            $image = $request->file('img_name');
+            $image_name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = 'storage/uploads/user'.$id.'/pictures';
+            $image->move($destinationPath, $image_name);
+        } else {
+            dd('Request Has No File');
         }
 
-
-        (new \App\Picture)->create($aux);
-
+        Picture::create([
+            'user_id' => $id,
+            'title' => $request->get('title'),
+            'description' => $request->get('description'),
+            'img_name' => $image_name,
+        ]);
+    
         return view('upload_images');
     }
 }

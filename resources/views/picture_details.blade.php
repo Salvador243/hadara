@@ -11,7 +11,7 @@
             <!--Avatar-->
             <div class="col-2 d-flex justify-content-center m-0 p-0">
                 <img width="70%" class="align-self-center p-2" 
-                src="{{ asset('storage/avatar_profiles/'.$upload_user->avatar) }}">
+                src="{{ asset($upload_user->avatar) }}">
             </div>
             <!--Information-->
             <div class="col-10 card-body m-0 p-1 align-self-center">
@@ -30,7 +30,7 @@
 
     <!--Picture-->
     <div class="card mt-3">
-        <img src="{{ asset('storage/register/'.$upload_user->id.'/'.$picture->path) }}"
+        <img src="{{ asset($picture->image) }}"
          class="card-img-top w-100">
         <div class="card-body">
             <p class="card-text">{{ $picture->description }}</p>
@@ -63,7 +63,7 @@
                 <div class="row">
                     <!--Avatar-->
                     <div class="col-2 d-flex justify-content-center m-0 p-0">
-                        <img width="70%" class="align-self-center p-2" src="{{ $comment->user->avatar }}">
+                        <img width="70%" class="align-self-center p-2" src="{{ asset($comment->user->avatar) }}">
                     </div>
                     <!--Comment-->
                     <div class="col-10 card-body m-0 p-1 align-self-center">
