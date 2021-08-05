@@ -16,7 +16,7 @@ class CreatePicturesTable extends Migration
         Schema::create('pictures', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->string('path');
+            $table->string('img_name');
             $table->string('title');
             $table->text('description');
             $table->timestamps();

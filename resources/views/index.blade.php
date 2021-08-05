@@ -9,17 +9,14 @@
     function getQueryVariable(variable) {
         var query = window.location.search.substring(1);
         var vars = query.split("&");
-
         for (var i = 0; i < vars.length; i++) {
             var pair = vars[i].split("=");
-
             if (pair[0] == variable) {
                 return pair[1];
             }
         }
         return false;
     }
-
     $(document).ready(function () {
         $("#search-form").attr('action', '/search');
         $("#search-form").submit(function (ev) {
@@ -33,13 +30,11 @@
             });
             ev.preventDefault();
         });
-
         function showData(data) {
             var obj = JSON.parse(data);
             var results = obj[0];
             var type = obj[1];
             var str = '';
-
             //If there'no results
             if (!results.length) {
                 str = `<h2 class="text-center text-muted mt-5">There's no result's to show</h2>`;
@@ -50,13 +45,12 @@
                     for (let picture of results) {
                         str += `<div class="col my-3">
                                     <a href="/picture_details/${picture.id}">
-                                        <img class="d-block w-100 shadow" 
-                                        src="/storage/register/${picture.user_id}/${picture.path}">
+                                        <img class="d-block w-100 shadow" src="${picture.image}">
                                     </a>
                                 </div>`;
                     }
                     str += `</div>`;
-                    //If the results type are profiles
+                 //If the results type are profiles
                 } else {
                     for (let profile of results) {
                         str += `
@@ -80,8 +74,7 @@
                                 </blockquote>
                             `;
                         }
-
-                        str += `<a href="/profile_details/${profile.email}" class="btn btn-primary mt-3">View Profile</a>
+                        str += `<a href="{{ route('Pdetails') }}" class="btn btn-primary mt-3">View Profile</a>
                                     </div>
                                 </div>
                             </div>
@@ -91,19 +84,15 @@
             }
             $("#results").html(str);
         }
-
         if (getQueryVariable('radioSearch')) {
             $("#search_input").val(getQueryVariable('search'));
-
             if($("input[name='radioSearch']:checked").val() != getQueryVariable('radioSearch')){
                 $("#radio_pictures").prop("checked", false);
                 $("#radio_profiles").prop("checked", true);
             }
         }
-
         $("#search-form").submit();
     });
-
     $(window).on('load', function () {
         if (getQueryVariable('radioSearch')) {
             setTimeout(function () {
@@ -111,6 +100,5 @@
             }, 100);
         }
     });
-
 </script>
 @endsection

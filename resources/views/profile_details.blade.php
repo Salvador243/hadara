@@ -17,10 +17,10 @@
 
 
 	<div class="row">
-		@foreach($data as $picture)
+		@foreach($data->pictures as $picture)
 
 		<div class="card mx-4 my-4" style="width: 18rem;">
-			<img src="{{ asset('storage/register/'.$picture->user_id.'/'.$picture->path) }}" class="card-img-top" alt="...">
+			<img src="{{ asset($picture->image) }}" class="card-img-top" alt="...">
 			<div class="card-body">
 				<h5 class="card-title">{{ $picture->title }}</h5>
 				<p class="card-text">{{ $picture->description }}</p>

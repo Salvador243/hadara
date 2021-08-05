@@ -69,27 +69,33 @@ class LoginController extends Controller
             return redirect()->to('/');
         }
 
+        //Download picture in temporal directory
+        $avatar = Controller::downloadAvatar($user->getAvatar());
+
         $attributes = [
             'provider' => $provider,
             'provider_id' => $user->getId(),
             'name' => $user->getName(),
             'email' => $user->getEmail(),
-            'avatar' => $user->getAvatar(),
+            'img_name' => $avatar->name,
             'password' => isset($attributes['password']) ? $attributes['password'] : bcrypt(Str::random(16))
 
         ];
 
         $user = User::where('provider_id', $user->getId() )->first();
+
         if (!$user){
             try{
-                $user=  User::create($attributes);
+                $user = User::create($attributes);
+                Controller::makeUserDirectories($user->id);
+                Controller::moveAvatar($avatar, $user->id);
             }catch (ValidationException $e){
-              return redirect()->to('/auth/login');
+                unlink($avatar->path);
+                return redirect()->to('/auth/login');
             }
         }
 
         $this->guard()->login($user);
-       return redirect()->to($this->redirectTo);
-
+        return redirect()->to($this->redirectTo);
     }
 }

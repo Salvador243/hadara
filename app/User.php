@@ -16,8 +16,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'avatar', 'password', 'provider', 'provider_id',
+        'name', 'email', 'img_name', 'password', 'provider', 'provider_id',
         'enableSignature', 'signature',
+    ];
+
+    protected $appends = [
+        'avatar',
     ];
 
     /**
@@ -37,9 +41,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    
-    public static function table(string $string)
-    {
+
+    //Accessor to set the value in the avatar attribute
+    public function getAvatarAttribute(){
+        return $this->img_name 
+        ? 'storage/uploads/user'.$this->id.'/'.$this->img_name 
+        : 'storage/default_user.png';
     }
     
     /**

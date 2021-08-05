@@ -7,7 +7,11 @@ class Picture extends Model
 {
 
     protected $fillable = [
-        'user_id', 'path', 'title', 'description',
+        'user_id', 'img_name', 'title', 'description',
+    ];
+
+    protected $appends = [
+        'image',
     ];
 
     /**
@@ -21,5 +25,8 @@ class Picture extends Model
         return $this->hasMany(Comment::class);
     }
 
+    public function getImageAttribute(){
+        return 'storage/uploads/user'.$this->user_id.'/pictures/'.$this->img_name;
+    }
 
 }

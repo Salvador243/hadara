@@ -9,7 +9,7 @@
 		@foreach($user as $data)
 		<div class="card mt-4">
 			<div class="row">
-				<img class="img-thumbnail" src="{{ asset('storage/avatar_profiles/'.$data->avatar)}}"> 
+				<img class="img-thumbnail" src="{{ $data->avatar }}"> 
 				<div class="form-group">
 					<label for="exampleFormControlFile1">Cambiar foto</label>
 					<input type="file" class="form-control-file" name="avatar">
