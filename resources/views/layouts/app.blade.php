@@ -55,7 +55,7 @@
                         <!--User dropzone options-->
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                             <!--Profile option-->
-                            <a href="{{ route('Pdetails') }}" class="dropdown-item">
+                            <a href="{{ route('Pdetails', Auth::user()->email) }}" class="dropdown-item">
                                 Profile
                             </a>
                             <!--Logout option-->

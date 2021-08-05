@@ -25,9 +25,9 @@ Route::group(['prefix' => 'auth'], function () {
     Route::get('/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 });
 //Controller to profile view
-Route::get('/profile_details', 'Profile_DetailsController@details')->name('Pdetails');
+Route::get('/profile_details/{email}', 'Profile_DetailsController@details')->name('Pdetails');
 //Controller to return the data of the user
-Route::post('/profile_edit/{email}','Profile_EditController@edit')->name('Eprofile');
+Route::post('/profile_edit/{id}','Profile_EditController@edit')->name('Eprofile');
 //controller to updating our data
 Route::patch('/profile_update','Profile_EditController@update')->name('update.data');
 //Controllers to upload images

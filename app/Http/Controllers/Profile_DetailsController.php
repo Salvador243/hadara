@@ -11,13 +11,13 @@ use Illuminate\Support\Facades\File;
 
 class Profile_DetailsController extends Controller
 {
-    public function details(){
+    public function details($email){
 
         $id = DB::table('users')
             ->select('id')
-            ->where('email','=',Auth::user()->email)
+            ->where('email','=', $email)
             ->get();
-
+            
 /*        $pila = array();
         $path = public_path('storage/files/' . $id[0]->id);
         if (is_dir($path) != false) {
@@ -31,7 +31,7 @@ class Profile_DetailsController extends Controller
         $data = DB::table('pictures as p')
             ->join('users as u','p.user_id','=','u.id')
             ->select('p.*')
-            ->where('u.email','=',Auth::user()->email)
+            ->where('u.id','=', $id[0]->id)
             ->get();
 
 

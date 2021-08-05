@@ -50,7 +50,8 @@
                     for (let picture of results) {
                         str += `<div class="col my-3">
                                     <a href="/picture_details/${picture.id}">
-                                        <img class="d-block w-100 shadow" src="${picture.path}">
+                                        <img class="d-block w-100 shadow" 
+                                        src="/storage/register/${picture.user_id}/${picture.path}">
                                     </a>
                                 </div>`;
                     }
@@ -79,7 +80,8 @@
                                 </blockquote>
                             `;
                         }
-                        str += `<a href="{{ route('Pdetails') }}" class="btn btn-primary mt-3">View Profile</a>
+
+                        str += `<a href="/profile_details/${profile.email}" class="btn btn-primary mt-3">View Profile</a>
                                     </div>
                                 </div>
                             </div>

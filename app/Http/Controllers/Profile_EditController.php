@@ -40,6 +40,6 @@ class Profile_EditController extends Controller
         }
         (new \App\User)->where('email','=',$modify['email'])->update($modify);
         
-      return redirect()->route('Pdetails');
+      return redirect()->route('Pdetails',$datos->email);
     }
 }
