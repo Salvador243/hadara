@@ -9,15 +9,13 @@
 		@foreach($user as $data)
 		<div class="card mt-4">
 			<div class="row">
-				<img class="img-thumbnail" src="{{ $data->avatar }}"> 
+				<img class="img-thumbnail" src="{{ asset($data->avatar) }}">
 				<div class="form-group">
 					<label for="exampleFormControlFile1">Cambiar foto</label>
-					<input type="file" class="form-control-file" name="avatar">
+					<input type="file" class="form-control-file" name="img_name">
 				</div>
 			</div>
-
 		</div>
-
 		<div class="input-group mt-3">
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="basic-addon1">Nombre</span>
@@ -41,7 +39,7 @@
 		</div>
 		@else
 
-		<div class="card">
+		<div class="card">	
 			<label for="">Desea crear una firma?</label>
 			<div class="form-check">
 				<input class="form-check-input" type="radio" id="si" value="option1">

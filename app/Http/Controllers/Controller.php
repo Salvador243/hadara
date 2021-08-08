@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -47,5 +48,9 @@ class Controller extends BaseController
 
     public function moveAvatar($avatar, $id){
         rename($avatar->path, 'storage/uploads/user'.$id.'/'.$avatar->name);
+    }
+    public function usuario($id){
+        User::find($id)->assignRole('user');
+        User::find($id)->givePermissionTo('edit profile');
     }
 }

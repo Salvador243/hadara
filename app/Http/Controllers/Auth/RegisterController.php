@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\roles;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -70,7 +71,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'provider' => 'laravel',
         ]);
-
+        Controller::usuario($user->id);
         Controller::makeUserDirectories($user->id);
         return $user;
     }

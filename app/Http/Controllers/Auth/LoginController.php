@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\roles;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Laravel\Socialite\Facades\Socialite;
@@ -89,6 +90,7 @@ class LoginController extends Controller
                 $user = User::create($attributes);
                 Controller::makeUserDirectories($user->id);
                 Controller::moveAvatar($avatar, $user->id);
+                roles::usuario($user->id);
             }catch (ValidationException $e){
                 unlink($avatar->path);
                 return redirect()->to('/auth/login');
