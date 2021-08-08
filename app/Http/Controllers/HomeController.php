@@ -14,6 +14,9 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index() {
+        $user = User::where('email','=','salvador243gm@gmail.com')->first();
+//        dd($user->can('edit profile'));
+
         return view('index');        
     }
 

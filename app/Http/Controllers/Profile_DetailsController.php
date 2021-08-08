@@ -12,10 +12,17 @@ use App\User;
 
 class Profile_DetailsController extends Controller
 {
+    public function profiles($id){        
+        $data = User::where('id',$id)->with('pictures')->first();
+        return view('profile_details')->with([
+            'data' => $data,
+        ]);
+    }
+
     public function details(){
         $data = User::where('id', Auth::user()->id)->with('pictures')->first();
-        
-        return view('profile_details',)->with([
+
+        return view('profile_details')->with([
             'data' => $data,
         ]);
     }
