@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Picture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 
 class ImageController extends Controller
 {
@@ -38,5 +40,16 @@ class ImageController extends Controller
         $imageUpload->save();
 
       //  return response()->json(['success'=>$avatarName]);
+    }
+    public function v(){
+        dd(User::where('name','=','salvador')->first());
+        // Adding permissions to a user
+        User::find(1)->assignRole('administrador');
+//    dd(User::find(1)->can('Eliminar Publicacion'));
+    dd(User::find(1)->hasRole('administrador'));
+
+
+
+
     }
 }

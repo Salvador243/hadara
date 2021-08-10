@@ -10,7 +10,9 @@
         <button id="btn_next" class="btn btn-primary" disabled>Next</button>
     </div>
 </div>
-
+@can('edit profile')
+    <h1>puede</h1>
+@endrole
 <script>
     function getQueryVariable(variable) {
         var query = window.location.search.substring(1);
@@ -85,7 +87,7 @@
                                 </blockquote>
                             `;
                         }
-                        str += `<a href="{{ route('Pdetails') }}" class="btn btn-primary mt-3">View Profile</a>
+                        str += `<a href="/profiles/${profile.id}" class="btn btn-primary mt-3">View Profile</a>
                                     </div>
                                 </div>
                             </div>

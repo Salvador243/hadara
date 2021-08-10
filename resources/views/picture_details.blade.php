@@ -23,7 +23,8 @@
                     </footer>
                 </blockquote>
                 @endif
-                <a href="{{ route('Pdetails', $upload_user->email) }}" class="btn btn-primary mt-3">View Profile</a>
+                <a href="{{ route('profiles',$upload_user->id) }}" 
+                    class="btn btn-primary mt-3">View Profile</a>
             </div>
         </div>
     </div>
