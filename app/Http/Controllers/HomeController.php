@@ -25,14 +25,13 @@ class HomeController extends Controller
         $type = 1;
 
         if(isset($_GET['radioSearch']) && $request->input('radioSearch') == 'profiles'){
-            $results = User::where('name', 'like', '%'.$request->input('search').'%')->get();
+            $results = User::where('name', 'like', '%'.$request->input('search').'%');
             $type = 0;
         }else{
             $results = Picture::where('title', 'like', '%'.$request->input('search').'%')
-            ->orwhere('description', 'like', '%'.$request->input('search').'%')
-            ->get();
+            ->orwhere('description', 'like', '%'.$request->input('search').'%');
         }
 
-        echo(json_encode([$results, $type]));
+        return json_encode([$results->paginate(6), $type]);
     }
 }

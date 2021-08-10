@@ -26,7 +26,7 @@ class Picture extends Model
     }
 
     public function getImageAttribute(){
-        return 'storage/uploads/user'.$this->user_id.'/pictures/'.$this->img_name;
+        return '/storage/uploads/user'.$this->user_id.'/pictures/'.$this->img_name;
     }
 
 }

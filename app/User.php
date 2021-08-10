@@ -5,20 +5,16 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
     use Notifiable;
-    use HasRoles;
-
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-
     protected $fillable = [
         'name', 'email', 'img_name', 'password', 'provider', 'provider_id',
         'enableSignature', 'signature',
@@ -47,16 +43,9 @@ class User extends Authenticatable
     ];
 
     //Accessor to set the value in the avatar attribute
-   // public static function where(string $string, string $string1, string $string2)
-   // {
-   // }
-    /**
-     * @var mixed
-     */
-    
     public function getAvatarAttribute(){
-        return $this->img_name
-        ? 'storage/uploads/user'.$this->id.'/'.$this->img_name
+        return $this->img_name 
+        ? 'storage/uploads/user'.$this->id.'/'.$this->img_name 
         : 'storage/default_user.png';
     }
     
