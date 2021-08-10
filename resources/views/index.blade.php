@@ -1,8 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container" id="results">
+<div class="container">
+    <div id="results">
 
+    </div>
+    <div id="pagination_controls" class="mb-5 d-flex justify-content-center">
+        <button id="btn_prev" class="btn btn-primary mr-2" disabled>Previous</button>
+        <button id="btn_next" class="btn btn-primary" disabled>Next</button>
+    </div>
 </div>
 
 <script>
@@ -17,6 +23,7 @@
         }
         return false;
     }
+
     $(document).ready(function () {
         $("#search-form").attr('action', '/search');
         $("#search-form").submit(function (ev) {
@@ -24,16 +31,20 @@
                 type: $('#search-form').attr('method'),
                 url: $('#search-form').attr('action'),
                 data: $('#search-form').serialize(),
-                success: function (data) {
-                    showData(data);
+                success: function (json) {
+                    //Decode de JSON
+                    var decode = JSON.parse(json);
+                    setImages(decode);
+                    configControls(decode);
                 }
             });
             ev.preventDefault();
         });
-        function showData(data) {
-            var obj = JSON.parse(data);
-            var results = obj[0];
-            var type = obj[1];
+
+        function setImages(decode) {
+            var results = decode[0].data;
+            var type = decode[1];
+
             var str = '';
             //If there'no results
             if (!results.length) {
@@ -82,8 +93,56 @@
                     }
                 }
             }
+            //Set the images
             $("#results").html(str);
         }
+
+        function enableControls(decode){
+            if(decode[0].prev_page_url){
+                $("#btn_prev").removeAttr('disabled');
+            }else{
+                $("#btn_prev").attr('disabled', 'true');
+            }
+
+            if(decode[0].next_page_url){
+                $("#btn_next").removeAttr('disabled');
+            }else{
+                $("#btn_next").attr('disabled', 'true');
+            }
+        }
+
+        function configControls(decode){
+            enableControls(decode);
+
+            if( !$("#btn_prev").attr('disabled') ){
+                $("#btn_prev").click(function () {
+                    $.ajax({
+                        type: 'GET',
+                        url: decode[0].prev_page_url,
+                        dataType: 'json',
+                        success: function (arr) {
+                            setImages(arr);
+                            configControls(arr);
+                        }
+                    });
+                });
+            }
+
+            if( !$("#btn_next").attr('disabled') ){
+                $("#btn_next").click(function () {
+                    $.ajax({
+                        type: 'GET',
+                        url: decode[0].next_page_url,
+                        dataType: 'json',
+                        success: function (arr) {
+                            setImages(arr);
+                            configControls(arr);
+                        }
+                    });
+                });
+            }
+        }
+
         if (getQueryVariable('radioSearch')) {
             $("#search_input").val(getQueryVariable('search'));
             if($("input[name='radioSearch']:checked").val() != getQueryVariable('radioSearch')){
@@ -93,6 +152,7 @@
         }
         $("#search-form").submit();
     });
+
     $(window).on('load', function () {
         if (getQueryVariable('radioSearch')) {
             setTimeout(function () {

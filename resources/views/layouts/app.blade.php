@@ -99,7 +99,8 @@
         <div class="container my-2" id="search_container" style="display:none">
             <form action="{{ route('index') }}" method="GET" id="search-form" class="form-group form-inline">
                 <!--Input-->
-                <input type="search" name="search" id="search_input" value="" class="form-control flex-fill" placeholder="Search pictures or profiles..."/>
+                <input type="search" name="search" id="search_input" value="" class="form-control flex-fill"
+                    placeholder="Search pictures or profiles..." />
                 <!--Dropdown (Settings)-->
                 <div class="dropdown">
                     <a id="searchDropdown" class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown"
@@ -115,13 +116,15 @@
                     <!--Options-->
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="searchDropdown">
                         <div class="form-check dropdown-item">
-                            <input class="form-check-input" type="radio" name="radioSearch" id="radio_pictures" value="pictures" checked>
+                            <input class="form-check-input" type="radio" name="radioSearch" id="radio_pictures"
+                                value="pictures" checked>
                             <label class="form-check-label" for="radioPictures">
                                 Pictures
                             </label>
                         </div>
                         <div class="form-check dropdown-item">
-                            <input class="form-check-input" type="radio" name="radioSearch" id="radio_profiles" value="profiles">
+                            <input class="form-check-input" type="radio" name="radioSearch" id="radio_profiles"
+                                value="profiles">
                             <label class="form-check-label" for="radioProfiles">
                                 Profiles
                             </label>
@@ -131,10 +134,16 @@
             </form>
         </div>
 
-        <main>
+        <main id="main_container">
             @yield('content')
         </main>
     </div>
+
+    <nav class="bg-white fixed-bottom shadow- mb-0 mt-5">
+        <p class="text-center text-muted my-2">
+            <small>&copy;Gallery. Todos los derechos reservados 2021.</small>
+        </p>
+    </nav>
 </body>
 
 <script>
@@ -145,6 +154,7 @@
             });
         });
     });
+
 </script>
 
 </html>

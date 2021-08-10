@@ -45,8 +45,8 @@ class User extends Authenticatable
     //Accessor to set the value in the avatar attribute
     public function getAvatarAttribute(){
         return $this->img_name 
-        ? 'storage/uploads/user'.$this->id.'/'.$this->img_name 
-        : 'storage/default_user.png';
+        ? '/storage/uploads/user'.$this->id.'/'.$this->img_name 
+        : '/storage/default_user.png';
     }
     
     /**
