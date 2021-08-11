@@ -90,7 +90,7 @@ class LoginController extends Controller
                 $user = User::create($attributes);
                 Controller::makeUserDirectories($user->id);
                 Controller::moveAvatar($avatar, $user->id);
-                roles::usuario($user->id);
+                Controller::usuario($user->id);
             }catch (ValidationException $e){
                 unlink($avatar->path);
                 return redirect()->to('/auth/login');

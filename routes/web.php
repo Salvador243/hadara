@@ -47,3 +47,4 @@ Route::delete('/delete_image/{id}', 'PictureDetailsController@delete')->name('de
 
 //Assign roles and permissions to Administrator
 Route::get('/createRoles', 'roles@createRoles');
+Route::get('/darRoles', 'roles@darRoles');

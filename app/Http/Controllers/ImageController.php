@@ -47,9 +47,5 @@ class ImageController extends Controller
         User::find(1)->assignRole('administrador');
 //    dd(User::find(1)->can('Eliminar Publicacion'));
     dd(User::find(1)->hasRole('administrador'));
-
-
-
-
     }
 }

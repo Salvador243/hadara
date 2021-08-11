@@ -3,8 +3,8 @@
     {{-- profile_details --}}
     <div class="container my-3">
         @can('edit profile')
-            @if($data->email == Auth::user()->email || Auth::user()->hasrole('Super Admin') )
-                <form action="{{ route( 'Eprofile', Auth::user()->email) }}" method="post">
+            @if($data->email == Auth::user()->email || Auth::user()->hasrole('admin') )
+                <form action="{{ route( 'Eprofile', $data->email) }}" method="post">
                     @csrf
                     <div class="alert alert-dark" role="alert">
                         <h4 class="alert-heading">Bienvenido!</h4>
@@ -31,7 +31,6 @@
                             @method('DELETE')
                             <button type="submit" class="btn btn-outline-dark" href="">borrar</button>
                         </form>
-
                     @endif
                 </div>
             @endforeach

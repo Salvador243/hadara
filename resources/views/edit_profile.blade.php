@@ -16,18 +16,18 @@
 				</div>
 			</div>
 		</div>
-		<div class="input-group mt-3">
+		<div class="input-group mt-4">
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="basic-addon1">Nombre</span>
 			</div>
 			<input type="text" class="form-control" value="{{$data->name}}" name="name">
 		</div>
 
-		<div class="input-group mt-3">
+		<div class="input-group mt-4">
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="basic-addon1">Correo Electronico</span>
 			</div>
-			<input type="email" class="form-control" value="{{$data->email}}" name="email">
+			<input type="email" class="form-control" value="{{$data->email}}" name="email" readonly>
 		</div>
 		@if($data->enableSignature == 1)
 
@@ -39,7 +39,7 @@
 		</div>
 		@else
 
-		<div class="card">	
+		<div class="card mt-4">	
 			<label for="">Desea crear una firma?</label>
 			<div class="form-check">
 				<input class="form-check-input" type="radio" id="si" value="option1">

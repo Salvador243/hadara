@@ -9,9 +9,7 @@
 	<label for="">Inicie sesion para cargar imagenes</label>
 	@else
 	<div class="container">
-
 		<h2>Carga tus imagenes</h2>
-
 		<form method="post" action="{{ route('save') }}" 
 			enctype="multipart/form-data">
 			@csrf
