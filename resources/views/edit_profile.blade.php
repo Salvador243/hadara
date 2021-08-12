@@ -41,19 +41,20 @@
 
 		<div class="card mt-4">	
 			<label for="">Desea crear una firma?</label>
-			<div class="form-check">
-				<input class="form-check-input" type="radio" id="si" value="option1">
-				<label class="form-check-label" for="exampleRadios1">
-					Si
-				</label>
-			</div>
-			<div class="form-check">
-				<input class="form-check-input" type="radio" id="no" value="option2" checked>
-				<label class="form-check-label" for="exampleRadios2">
-					No
-				</label>
-			</div>
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="flexRadioDefault" id="si" value="option1">
+			<label class="form-check-label" for="flexRadioDefault1">
+				Si
+			</label>
 		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="flexRadioDefault" id="no" value="option2" checked>
+			<label class="form-check-label" for="flexRadioDefault2">
+				No
+			</label>
+		</div>
+		</div>
+
 
 		<div id="insert"></div>
 

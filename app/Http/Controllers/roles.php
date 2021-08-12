@@ -32,4 +32,4 @@ class roles extends BaseController
         $user->assignRole('admin');
         $user->givePermissionTo('edit profile');
     }
-}
+} 

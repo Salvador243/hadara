@@ -22,10 +22,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body>
+<body class="main-pleca">
     <div id="app">
         <!--Navbar-->
-        <nav class="navbar navbar-expand navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand navbar-light nav-pleca shadow-sm">
             <div class="container">
                 <!--Brand & app name-->
                 <a class="navbar-brand" href="{{ route('index') }}">
@@ -48,7 +48,7 @@
                     @else
                     <!--User dropzone-->
                     <li class="nav-item dropdown">
-                        <a id="userDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                        <a id="userDropdown" class="navbar-brand dropdown-toggle" href="#" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
                         </a>
@@ -70,14 +70,8 @@
                     </li>
                     <!--Upload picture option-->
                     <li class="nav-item">
-                        <a class="btn btn-labeled" href="{{ route('Upload') }}" role="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-upload" viewBox="0 0 16 16">
-                                <path
-                                    d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
-                                <path
-                                    d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z" />
-                            </svg>
+                        <a class="navbar-brand" href="{{ route('Upload') }}" role="button">
+                            Subir
                         </a>
                     </li>
                     @endguest
