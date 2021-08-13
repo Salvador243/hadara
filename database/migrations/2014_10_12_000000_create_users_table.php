@@ -19,7 +19,6 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('img_name')->nullable();
-            $table->boolean('enableSignature')->default(0);
             $table->string('signature')->nullable();
             $table->string('password');
             $table->string('provider');

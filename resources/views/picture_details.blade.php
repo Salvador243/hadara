@@ -70,12 +70,12 @@
                     <div class="col-10 card-body m-0 p-1 align-self-center">
                         <h5 class="card-title pt-2">{{ $comment->user->name }}</h5>
                         <p class="card-text">{{ $comment->comment }}</p>
-                        @if($comment->user->enableSignature)
+                        @if($comment->user->signature != null)
                         <blockquote class="blockquote mb-0">
                             <footer class="blockquote-footer">
                                 <i>{{ $comment->user->signature }}</i>
                             </footer>
-                        </blockquote>
+                        </blockquote>   
                         @endif
                         <blockquote class="blockquote mb-0 text-center">
                             <footer class="blockquote-footer">

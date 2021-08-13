@@ -5,85 +5,34 @@
 	<form action="{{route('update.data')}}" method="post" enctype="multipart/form-data">
 		@csrf
 		@method('PATCH')
-
 		@foreach($user as $data)
-		<div class="card mt-4">
-			<div class="row">
-				<img class="img-thumbnail" src="{{ asset($data->avatar) }}">
-				<div class="form-group">
-					<label for="exampleFormControlFile1">Cambiar foto</label>
-					<input type="file" class="form-control-file" name="img_name">
+		<div class="container rounded pleca">
+			<div class="row col-md-12 mt-5">
+				<div class="col-md-6 my-5 justify-content-center">
+					<img  class="rounded-circle mx-auto d-block mb-4" src="{{ asset($data->avatar) }}">
+					<input class="form-control" type="file" name="img_name">
+				</div>
+				<div class="col-md-6">
+					<div class="input-group mt-5">
+						<span class="input-group-text">Nombre</span>
+						<input type="text" class="form-control rounded" placeholder="Username" value="{{$data->name}}" name="name">
+					</div>
+					<div class="input-group mt-4">
+						<span class="input-group-text">Correo Electronico</span>
+						<input type="email" class="form-control rounded" placeholder="E-mail"  value="{{$data->email}}" name="email" readonly>
+					</div>
+					<div class="input-group mt-4 mb-5">
+						<span class="input-group-text">Firma</span>
+						<input type="text" class="form-control rounded" placeholder="Signature" value="{{$data->signature}}" name="signature">
+					</div>
+					<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+						<button class="my-3 btn btn-danger" type="">Actualizar</button>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="input-group mt-4">
-			<div class="input-group-prepend">
-				<span class="input-group-text" id="basic-addon1">Nombre</span>
-			</div>
-			<input type="text" class="form-control" value="{{$data->name}}" name="name">
-		</div>
-
-		<div class="input-group mt-4">
-			<div class="input-group-prepend">
-				<span class="input-group-text" id="basic-addon1">Correo Electronico</span>
-			</div>
-			<input type="email" class="form-control" value="{{$data->email}}" name="email" readonly>
-		</div>
-		@if($data->enableSignature == 1)
-
-		<div class="input-group mt-3">
-			<div class="input-group-prepend">
-				<span class="input-group-text" id="basic-addon1">Firma</span>
-			</div>
-			<input type="text" class="form-control" value="{{$data->signature}}" name="signature">
-		</div>
-		@else
-
-		<div class="card mt-4">	
-			<label for="">Desea crear una firma?</label>
-		<div class="form-check">
-			<input class="form-check-input" type="radio" name="flexRadioDefault" id="si" value="option1">
-			<label class="form-check-label" for="flexRadioDefault1">
-				Si
-			</label>
-		</div>
-		<div class="form-check">
-			<input class="form-check-input" type="radio" name="flexRadioDefault" id="no" value="option2" checked>
-			<label class="form-check-label" for="flexRadioDefault2">
-				No
-			</label>
-		</div>
-		</div>
-
-
-		<div id="insert"></div>
-
-		@endif
 		@endforeach
-		<button  class="btn btn-dark mt-4" type="submit">Actualizar</button>
-	</div>
-</form>
+	</form>
+</div>
 
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<script type="text/javascript">
-	$(document).ready( function(){
-		$("#si").on('click', function(){
-			$("#insert").html(`
-				<div id="firma" class="input-group mt-3">
-				<div class="input-group-prepend">
-				<span class="input-group-text" id="basic-addon1">Firma</span>
-				</div>
-				<input name="signature" type="text" class="form-control" value="">
-				</div>
-				`);
-			$("#no").click(function(){
-				$("#firma").remove();
-			});
-		});
-	});
-
-
-</script>
 @endsection	

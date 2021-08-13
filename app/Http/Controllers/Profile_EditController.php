@@ -34,7 +34,7 @@ class Profile_EditController extends Controller
         $modify['img_name'] = $image_name;
     }
 
-    if($datos->signature == null){
+/*    if($datos->signature == null){
         DB::table('users')
         ->where('email','=',$datos->email)
         ->update(['enableSignature' => 0,]);
@@ -42,7 +42,7 @@ class Profile_EditController extends Controller
         DB::table('users')
         ->where('email','=',$datos->email)
         ->update(['enableSignature' => 1,]);
-    }
+    }*/
     (new \App\User)->where('email','=',$modify['email'])->update($modify);
 
     return redirect()->route('Pdetails',$datos->email);

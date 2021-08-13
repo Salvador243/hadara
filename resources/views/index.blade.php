@@ -82,7 +82,7 @@
                                 </blockquote>
                             `;
                             }
-                            str += `<a href="{{ route('Pdetails') }}" class="btn btn-primary mt-3">View Profile</a>
+                            str += `<a href="/profiles/${profile.id}" class="btn btn-primary mt-3">View Profile</a>
                                     </div>
                                 </div>
                             </div>

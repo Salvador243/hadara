@@ -50,6 +50,13 @@ html {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
 .linea{
     border-left: 3px solid rgba(211, 211, 211, 0.5);
     height: 80%;
@@ -374,7 +381,7 @@ progress {
 
 ::-webkit-file-upload-button {
   font: inherit;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, );
 }
 
 output {
@@ -3900,6 +3907,7 @@ input[type=button].btn-block {
   background-color: #e9ecef;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
+  width: 30%;
 }
 
 .input-group-text input[type=radio],
@@ -7221,6 +7229,9 @@ button.bg-dark:focus {
 
 .rounded-circle {
   border-radius: 50% !important;
+  width: auto;
+  height: 30%;
+  background-color: #d3d3d3;
 }
 
 .rounded-pill {
