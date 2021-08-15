@@ -32,7 +32,7 @@
 					</div>
 					<div class="col-md">
 						<div class="row justify-content-end">
-								@auth
+							@auth
 							<div class="col-md">
 								<a class="" href="{{ route('profiles',$upload_user->id) }}">	
 									<p class="name-user">{{ $upload_user->name }}</p>
@@ -43,7 +43,7 @@
 									<img src="{{ asset(Auth::user()->avatar) }}" class="avatar float-right" width="60px" height="55px">
 								</a>
 							</div>
-								@endauth
+							@endauth
 						</div>
 					</div>
 				</div>
@@ -58,6 +58,7 @@
 			<div class="border-bottom"></div>
 
 			{{-- comments --}}
+			<div class="col-md py-3">
 				<h2 class="comentarios">Comentarios</h2>
 				@if(Auth::check())
 				<!--Form to add a comment-->
@@ -80,9 +81,8 @@
 					</div>
 				</form>
 				@endif
-			<div  class="pt-3" id="comments">
-
 			</div>
+			<div class="pt-3" id="comments">
 				@foreach($comments as $comment)
 				<div class="row">
 					<!--Avatar-->
@@ -127,7 +127,7 @@
 				<!--Avatar-->
 
 				<div class="col-md-2 d-flex justify-content-center">
-				<img width="50px" height="45px" class="align-self-center avatar" \
+				<img width="50px" height="45px" class="align-self-center avatar"
 				src="${comment.user.avatar}">
 				</div>
 
