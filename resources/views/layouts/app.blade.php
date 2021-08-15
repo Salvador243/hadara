@@ -29,6 +29,7 @@
             <div class="container">
                 <!--Logo-->
                 <a class="navbar-brand" href="{{ route('index') }}">
+                    <img src="/storage/logo.svg" width="60" height="60" class="d-line-block my-0">
                 </a>
                 <!--Navbar items-->
                 <ul class="navbar-nav ml-auto mr-auto">
@@ -80,11 +81,11 @@
                     <!-- Authentication Links -->
                     @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">Iniciar Sesi&oacute;n</a>
+                        <a class="nav-link nav-text" href="{{ route('login') }}">Iniciar Sesi&oacute;n</a>
                     </li>
                     @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">Registro</a>
+                        <a class="nav-link nav-text" href="{{ route('register') }}">Registro</a>
                     </li>
                     @endif
                     @else
@@ -108,7 +109,7 @@
                 <div class="dropdown ml-auto">
                     <a id="userDropdown" class="navbar-brand dropdown-toggle" href="#" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        <img src="{{ asset(Auth::user()->avatar) }}" class="avatar" width="30px" width="30px">
+                        <img src="{{ asset(Auth::user()->avatar) }}" class="avatar" width="35px" height="30px">
                     </a>
                     <!--User dropzone options-->
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
@@ -130,12 +131,11 @@
             </div>
         </nav>
 
-        <main id="main_container">
+        <main id="main_container" class="help">
             @yield('content')
         </main>
     </div>
 
-</body>
     <footer class="footer-new mb-0 mt-5">
         <div class="container pt-4 mb-2" id="footer-cols">
             <div class="d-flex justify-content-center">
@@ -201,8 +201,8 @@
             </div>
         </div>
         <hr id="footer-hr">
-        <p class="text-center text-muted py-2 mb-0" id="footer-bottom">
-            <small>&copy;Copyright 2021, HadarA.</small>
+        <p class="text-center py-2 mb-0" id="footer-bottom">
+            <small class="nav-text">&copy;Copyright 2021, HadarA.</small>
         </p>
     </footer>
 </body>

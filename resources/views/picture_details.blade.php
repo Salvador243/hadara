@@ -1,149 +1,151 @@
 @extends('layouts.app')
 @section('content')
-{{-- profile_details --}}
-<div class="container my-3">
-    <!--Picture's title-->
-    <h1 class="text-center">{{ $picture->title }}</h1>
 
-    <!--User's presentation card-->
-    <div class="card shadow">
-        <div class="row">
-            <!--Avatar-->
-            <div class="col-2 d-flex justify-content-center m-0 p-0">
-                <img width="70%" class="align-self-center p-2" 
-                src="{{ asset($upload_user->avatar) }}">
-            </div>
-            <!--Information-->
-            <div class="col-10 card-body m-0 p-1 align-self-center">
-                <h5 class="card-title">{{ $upload_user->name  }}</h5>
-                @if($upload_user->enableSignature)
-                <blockquote class="blockquote mb-0">
-                    <footer class="blockquote-footer">
-                        <i>{{ $upload_user->signature }}</i>
-                    </footer>
-                </blockquote>
-                @endif
-                <a href="{{ route('profiles',$upload_user->id) }}" 
-                    class="btn btn-primary mt-3">View Profile</a>
-            </div>
-        </div>
-    </div>
 
-    <!--Picture-->
-    <div class="card mt-3">
-        <img src="{{ asset($picture->image) }}"
-         class="card-img-top w-100">
-        <div class="card-body">
-            <p class="card-text">{{ $picture->description }}</p>
-        </div>
-        <a href="#" class="btn btn-primary btn-block btn-lg">Download</a>
-    </div>
+{{-- Pleca --}}
+<div class=" container pleca rounded-new">
+	{{-- 2 Columns pleca --}}
+	<div class="row col-md-12 justify-content-center padding-pleca">
+		{{-- first column --}}
+		<div class="col-md-6 padding-img">
+			<img src="{{ asset($picture->image) }}"
+			class="card-img-top">        
+		</div>
+		{{-- second column --}}
+		<div class="col-md">
+			<div class="container pt-3">
+				<div class="row pb-5">
+					<div class="col-md">
+						@auth
+						<a class="icon-details pr-4" href="{{ asset($picture->image) }}" download>
+							<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+								<path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+								<path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+							</svg>
+							@endauth
+							<a class="icon-details" href="">
+								<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+									<path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+								</svg>
+							</a>
+						</a>
+					</div>
+					<div class="col-md">
+						<div class="row justify-content-end">
+								@auth
+							<div class="col-md">
+								<a class="" href="{{ route('profiles',$upload_user->id) }}">	
+									<p class="name-user">{{ $upload_user->name }}</p>
+								</a>
+							</div>
+							<div class="col-md">
+								<a href="{{ route('profiles',$upload_user->id) }}">
+									<img src="{{ asset(Auth::user()->avatar) }}" class="avatar float-right" width="60px" height="55px">
+								</a>
+							</div>
+								@endauth
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="title-details">{{ $picture->title }}</p>
+			<p class="description">{{ $picture->description }}</p>
+			<blockquote class="blockquote">
+				<footer class="firma">
+					<cite title="Source Title">{{$upload_user->signature}}</cite>
+				</footer>
+			</blockquote>
+			<div class="border-bottom"></div>
 
-    <!--Comments-->
-    <div class="container-fluid bg-secondary mt-2 py-5">
-        <!--Title-->
-        <h2 class="text-center">Comments</h2>
-        @if(Auth::check())
-        <!--Form to add a comment-->
-        <form action="{{ route('addComment') }}" method="GET" id="form-comment" class="card shadow p-2">
-            @csrf
-            <div class="mb-3">
-                <input type="text" name="user_id" value="{{ Auth::user()->id }}" hidden>
-                <input type="text" name="picture_id" value="{{ $picture->id }}" hidden>
-                <textarea name="comment" cols="30" rows="8" class="form-control"
-                    placeholder="Write a comment...."></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Comment</button>
-        </form>
-        @endif
+			{{-- comments --}}
+			<div  class="pt-3" id="comments">
+				<h2 class="comentarios">Comentarios</h2>
+				@if(Auth::check())
+				<!--Form to add a comment-->
+				<form action="{{ route('addComment') }}" method="GET" id="form-comment" class="">
+					@csrf
+					<div class="row">
+						<div class="col-md-2 d-flex justify-content-center">
+							<img width="50px" height="45px" class="align-self-center avatar" 
+							src="{{ asset(Auth::user()->avatar) }}">
+						</div>
+						<div class="col-md-2">
+							<div class="mb-3">
+								<input type="text" name="user_id" value="{{ Auth::user()->id }}" hidden>
+								<input type="text" name="picture_id" value="{{ $picture->id }}" hidden>
+								<textarea name="comment" cols="40" class="card-comment"
+								placeholder="Write a comment...."></textarea>
+							</div>
+							<button type="submit" class="btn btn-danger">Comentar</button>
+						</div>
+					</div>
+				</form>
+				@endif
 
-        <!--Comments section-->
-        <div id="comments">
-            @foreach($comments as $comment)
-            <div class="card shadow my-3">
-                <div class="row">
-                    <!--Avatar-->
-                    <div class="col-2 d-flex justify-content-center m-0 p-0">
-                        <img width="70%" class="align-self-center p-2" src="{{ asset($comment->user->avatar) }}">
-                    </div>
-                    <!--Comment-->
-                    <div class="col-10 card-body m-0 p-1 align-self-center">
-                        <h5 class="card-title pt-2">{{ $comment->user->name }}</h5>
-                        <p class="card-text">{{ $comment->comment }}</p>
-                        @if($comment->user->signature != null)
-                        <blockquote class="blockquote mb-0">
-                            <footer class="blockquote-footer">
-                                <i>{{ $comment->user->signature }}</i>
-                            </footer>
-                        </blockquote>   
-                        @endif
-                        <blockquote class="blockquote mb-0 text-center">
-                            <footer class="blockquote-footer">
-                                <i>{{$comment->created_at}}</i>
-                            </footer>
-                        </blockquote>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div>
-    </div>
+				@foreach($comments as $comment)
+				<div class="row">
+					<!--Avatar-->
+					<div class="col-md-2 d-flex justify-content-center">
+						<img width="50px" height="45px" class="align-self-center avatar" src="{{ asset($comment->user->avatar) }}">
+					</div>
+					<!--Comment-->
+					<div class="card-new align-self-center">
+						<div class="card-comment">
+							<p class="pt-3 text-center">{{ $comment->comment }}</p>
+						</div>
+					</div>
+				</div>
+				
+				@endforeach
+			</div>
+		</div>
+	</div>
 </div>
 
 <script>
-    $(document).ready(function () {
-        $("#form-comment").submit(function (ev) {
-            $.ajax({
-                type: $('#form-comment').attr('method'),
-                url: $('#form-comment').attr('action'),
-                data: $('#form-comment').serialize(),
-                success: function (data) {
-                    showComments(data);
-                }
-            });
-            ev.preventDefault();
-        });
+	$(document).ready(function () {
+		$("#form-comment").submit(function (ev) {
+			$.ajax({
+				type: $('#form-comment').attr('method'),
+				url: $('#form-comment').attr('action'),
+				data: $('#form-comment').serialize(),
+				success: function (data) {
+					showComments(data);
+				}
+			});
+			ev.preventDefault();
+		});
 
-        function showComments(data) {
-            var comments = JSON.parse(data);
-            var str = '';
+		function showComments(data) {
+			var comments = JSON.parse(data);
+			var str = '<h2 class="comentarios">Comentarios</h2>';
 
-            for (let comment of comments) {
-                str += `
-                    <div class="card shadow mt-3">
-                        <div class="row">
-                            <!--Avatar-->
-                            <div class="col-2 d-flex justify-content-center m-0 p-0">
-                                <img width="70%" class="align-self-center p-2" src="${comment.user.avatar}">
-                            </div>
-                            <!--Comment-->
-                            <div class="col-10 card-body m-0 p-1 align-self-center">
-                                <h5 class="card-title pt-2">${comment.user.name}</h5>
-                                <p class="card-text">${comment.comment}</p>`;
-                if (comment.user.enableSignature) {
-                    str += `
-                                        <blockquote class="blockquote mb-0">
-                                            <footer class="blockquote-footer">
-                                                <i>${comment.user.signature}</i>
-                                            </footer>
-                                        </blockquote>`;
-                }
-                str += `
-                                <blockquote class="blockquote mb-0 text-center">
-                                            <footer class="blockquote-footer">
-                                                <i>${comment.created_at}</i>
-                                            </footer>
-                                        </blockquote>
-                            </div>
-                        </div>
-                    </div>`;
-            }
+			for (let comment of comments) {
+				str += `
+				<div class="row">
 
-            $("#comments").html(str);
-        }
-    });
+				<!--Avatar-->
 
+				<div class="col-md-2 d-flex justify-content-center">
+				<img width="50px" height="45px" class="align-self-center avatar" \
+				src="${comment.user.avatar}">
+				</div>
+
+				<!--Comment-->
+				<div class="card-new align-self-center">
+				<div class="card-comment">
+				<p class="pt-3 text-center">${comment.comment}</p>`;
+
+
+				str += `
+				</div>
+				</div>
+				</div>`;
+			}
+
+			$("#comments").html(str);
+		}
+	});
 </script>
-
 
 @endsection

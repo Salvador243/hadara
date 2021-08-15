@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
 
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
@@ -42,14 +42,85 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
-
+.btn-log {
+  font-weight: 400;
+  color: #d3d3d3;
+  text-decoration: none;
+}
+.btn-log:hover {
+  color: #d3d3d3;
+  text-decoration: none;
+}
+.name-user{
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  color: #d3d3d3;
+}
+.title-details{
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #d3d3d3;
+}
+.description{
+  font-size: 1.6rem;
+  color: #d3d3d3;
+  font-weight: bold;
+}
+.nav-text{
+  font-size: 0.9rem;
+  color: #d3d3d3;
+  font-weight: bold;
+  text-decoration: none;
+}
+.comentarios{
+  font-size: 1.6rem;
+  color: #d3d3d3;
+  font-weight: bold;
+}
+.firma{
+  font-size: 1.1rem;
+  color: #d3d3d3;
+  font-weight: bold;
+}
+.padding-img{
+  padding-top: 4rem;
+}
 html {
-  font-family: sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+.card-comment{
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 0.5rem;
+  padding-left: 1.4rem;
+  color: #d3d3d3;
+  display: flex; 
+}
+.card-new{
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 0.75rem;
+}
+.help{
+  min-height: calc(100vh - 347px);
+}
+
+.line-div {
+   width: 100%; 
+   text-align: center; 
+   line-height: 0rem;
+   margin: 0.7rem 0rem 1.2rem; 
+   background-color: #d3d3d3;
+} 
+
+.line-div span { 
+    background:#0d1016; 
+    padding:0 10px; 
+}
+
 .btn-eliminar{
   color: #c71c1b;
   top: 8%;
@@ -64,12 +135,12 @@ html {
 }
 .rounded-login{
   border-radius: 0.80rem !important;
-    background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.25);
   display: block;
   width: 100%;
   padding: 0.9rem;
   font-size: 0.9rem;
-  font-weight: 400;
+  font-weight: bold;
   line-height: 1.6;
   color: #d3d3d3;
   background-clip: padding-box;
@@ -92,6 +163,15 @@ html {
   font-size: 1.4rem;
 }
 
+.icon-details{
+  color: #d3d3d3;
+  background-color: transparent !important;
+  text-decoration: none;
+}
+.icon-details:hover{
+  color: #d3d3d3;
+}
+
 /**
  Clases del layout
 */
@@ -110,6 +190,7 @@ html {
 
 .avatar{
   border-radius: 100% !important;
+  background-color: #d3d3d3;
 }
 
 .search-button{
@@ -165,6 +246,10 @@ html {
 }
 
 /** Fin de clases del layour*/
+
+.padding-pleca{
+  padding: 2.8rem !important;
+}
 
 .centrado{
   display:block;
@@ -700,13 +785,13 @@ mark,
 
 .blockquote {
   margin-bottom: 1rem;
-  font-size: 1.125rem;
+  font-size: 1.5rem;
 }
 
 .blockquote-footer {
   display: block;
   font-size: 80%;
-  color: #6c757d;
+  color: #d3d3d3;
 }
 
 .blockquote-footer::before {
@@ -2842,7 +2927,7 @@ textarea.form-control.is-invalid {
   user-select: none;
   background-color: transparent;
   border: 1px solid transparent;
-  padding: 0.375rem 0.75rem;
+  padding: 0.2rem 1.5rem;
   font-size: 0.9rem;
   line-height: 1.6;
   border-radius: 0.25rem;
@@ -3616,10 +3701,9 @@ input[type=button].btn-block {
   padding: 0.5rem 0;
   margin: 0.125rem 0 0;
   font-size: 0.9rem;
-  color: #212529;
   text-align: left;
   list-style: none;
-  background-color: #fff;
+  background-color: #101319;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0.25rem;
@@ -3789,8 +3873,8 @@ input[type=button].btn-block {
   width: 100%;
   padding: 0.25rem 1.5rem;
   clear: both;
-  font-weight: 400;
-  color: #212529;
+  font-weight: bold;
+  color: #d3d3d3;
   text-align: inherit;
   white-space: nowrap;
   background-color: transparent;
@@ -3799,9 +3883,9 @@ input[type=button].btn-block {
 
 .dropdown-item:hover,
 .dropdown-item:focus {
-  color: #16181b;
+  color: #d3d3d3;
   text-decoration: none;
-  background-color: #e9ecef;
+  background-color: #c71c1b;
 }
 
 .dropdown-item.active,

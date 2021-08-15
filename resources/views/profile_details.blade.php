@@ -5,7 +5,7 @@
 	@can('edit profile')
 
 	<div class="col-md-12 justify-content-center my-5">
-		<img  class="rounded-circle mx-auto d-block mb-4" 
+		<img  class="rounded-circle mx-auto d-block mb-4 avatar" 
 		src="{{asset($data->avatar)}}">
 		@if($data->email == Auth::user()->email || Auth::user()->hasrole('admin') )
 		<div class="row justify-content-center d-flex align-items-center">
