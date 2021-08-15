@@ -29,6 +29,7 @@
             <div class="container">
                 <!--Brand & app name-->
                 <a class="navbar-brand" href="{{ route('index') }}">
+                    
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/50px-Laravel.svg.png"
                         alt="" width="30" height="24" class="d-inline-block align-text-top">
                     {{ config('Gallery', 'Gallery') }}
@@ -133,10 +134,34 @@
         </main>
     </div>
 
-    <footer class="footer-new bg-white shadow- mb-0 mt-5">
-        <p class="text-center text-muted my-2">
+    <footer class="footer-new">
             <small>&copy;Gallery. Todos los derechos reservados 2021.</small>
-        </p>
+
+            <small>&copy;Gallery. Todos los derechos reservados 2021.</small>
+
+            <small>&copy;Gallery. Todos los derechos reservados 2021.</small>
+            <small>&copy;Gallery. Todos los derechos reservados 2021.</small>
+
+            <small>&copy;Gallery. Todos los derechos reservados 2021.</small>
+
+            <small>&copy;Gallery. Todos los derechos reservados 2021.</small>
+            <small>&copy;Gallery. Todos los derechos reservados 2021.</small>
+
+            <small>&copy;Gallery. Todos los derechos reservados 2021.</small>
+
+            <small>&copy;Gallery. Todos los derechos reservados 2021.</small>
+            <small>&copy;Gallery. Todos los derechos reservados 2021.</small>
+
+            <small>&copy;Gallery. Todos los derechos reservados 2021.</small>
+
+            <small>&copy;Gallery. Todos los derechos reservados 2021.</small>
+            <small>&copy;Gallery. Todos los derechos reservados 2021.</small>
+
+            <small>&copy;Gallery. Todos los derechos reservados 2021.</small>
+
+            <small>&copy;Gallery. Todos los derechos reservados 2021.</small>
+
+
     </footer>
 </body>
 
