@@ -58,7 +58,6 @@
 			<div class="border-bottom"></div>
 
 			{{-- comments --}}
-			<div  class="pt-3" id="comments">
 				<h2 class="comentarios">Comentarios</h2>
 				@if(Auth::check())
 				<!--Form to add a comment-->
@@ -81,7 +80,9 @@
 					</div>
 				</form>
 				@endif
-
+			<div  class="pt-3" id="comments">
+				
+			</div>
 				@foreach($comments as $comment)
 				<div class="row">
 					<!--Avatar-->
@@ -95,7 +96,6 @@
 						</div>
 					</div>
 				</div>
-				
 				@endforeach
 			</div>
 		</div>
