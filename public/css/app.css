@@ -91,15 +91,86 @@ html {
   color: #d3d3d3 !important;
   font-size: 1.4rem;
 }
+
+/**
+ Clases del layout
+*/
+.search-bar{
+  border-radius: 5px;
+  background-color: #d3d3d3 !important;
+  color: gray !important;
+  height: 30px !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
+
+.search-bar::placeholder{
+  color: gray !important;
+}
+
+.avatar{
+  border-radius: 100% !important;
+}
+
+.search-button{
+  height: 30px !important;
+  padding-top: 3px !important;
+  background-color: #d3d3d3 !important;
+  border: none !important;
+  outline: none !important;
+  padding-bottom: 5px !important;
+}
+
+.search-toggle{
+  height: 30px !important;
+  padding-top: 3px !important;
+  background-color: #d3d3d3 !important;
+  color: gray !important;
+  border: none !important;
+  outline: none !important;
+  border-radius: 0 5px 5px 0 !important;
+  padding-bottom: 5px !important;
+}
+
+.footer-new{
+  background-color: #10131A !important;
+  color: white !important;
+}
+
+#footer-hr{
+  margin: 0 !important;
+  padding: 1px !important;
+}
+
+#footer-bottom{
+  background-color: #0D1017 !important;
+}
+
+.footer-list{
+  list-style-type: none !important;
+  margin: 0 !important;
+}
+
+.footer-list > li > a{
+  text-decoration: none !important;
+  color: white;
+}
+
+.footer-list > li > a:hover{
+  color: gray;
+}
+
+.footer-col{
+  border-right: thin solid #d3d3d3 !important;
+}
+
+/** Fin de clases del layour*/
+
 .centrado{
   display:block;
   margin-left: auto;
   margin-right: auto;
   position: absolute;
-}
-/*inicio del ejemplo*/
-.footer-new {
-  background-color: rgba(255, 255, 255, 1.0);
 }
 
 .file-select {          
