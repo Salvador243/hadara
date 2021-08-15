@@ -122,9 +122,9 @@ html {
 }
 
 .btn-eliminar{
-  color: #c71c1b;
+  color: rgba(255, 255, 255, 0.5 );
   top: 8%;
-  left: 5%;
+  left: 95%;
   transform: translate(-50%, -50%);
   position: absolute;
   background-color: transparent !important;
@@ -252,7 +252,7 @@ html {
 }
 
 .centrado{
-  display:block;
+
   margin-left: auto;
   margin-right: auto;
   position: absolute;
@@ -274,7 +274,7 @@ html {
   left: 0;
   right: 0;
   top: 0;
-  bottom: 0;                
+  bottom: 0;   
 }
 .file-select input[type="file"] {
   opacity: 0;

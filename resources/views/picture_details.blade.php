@@ -40,7 +40,7 @@
 							</div>
 							<div class="col-md">
 								<a href="{{ route('profiles',$upload_user->id) }}">
-									<img src="{{ asset(Auth::user()->avatar) }}" class="avatar float-right" width="60px" height="55px">
+									<img src="{{ asset($picture->user->avatar) }}" class="avatar float-right" width="60px" height="55px">
 								</a>
 							</div>
 							@endauth

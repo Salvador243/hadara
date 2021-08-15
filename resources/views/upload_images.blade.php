@@ -13,7 +13,7 @@
 		class="rounded row justify-content-center col-md-12 my-5 pleca">
 		<div class="col-lg-5 my-5">
 			<div class="card2 rounded form-group">
-				<div class="my-5 file-select-2 centrado">
+				<div class="my-5 file-select centrado">
 					<input type="file" name="img_name" aria-label="Archivo">
 				</div>
 			</div>
@@ -34,39 +34,12 @@
 				<input type="text" class="rounded form-control my-4" name="tags" 
 				placeholder="Etiquetas" disabled="">
 			</div>
-
 			<div class="d-grid gap-2 d-md-flex justify-content-md-end">
 				<button class="my-3 btn btn-danger" type="">publicar</button>
 			</div>
-
 		</div>
-
 	</div>
-
-	</form>
+</form>
 </div>
-
-{{--
-<script type="text/javascript">
-	Dropzone.options.dropzone =
-	{
-		maxFilesize: 10,
-		renameFile: function (file) {
-			var dt = new Date();
-			var time = dt.getTime();
-			return time + file.name;
-		},
-		acceptedFiles: ".jpeg,.jpg,.png,.gif",
-		addRemoveLinks: true,
-		timeout: 60000,
-		success: function (file, response) {
-			console.log(response);
-		},
-		error: function (file, response) {
-			return false;
-		}
-	};
-</script>
---}}
 </div>
 @endsection	
