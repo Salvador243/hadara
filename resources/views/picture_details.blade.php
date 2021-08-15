@@ -81,7 +81,7 @@
 				</form>
 				@endif
 			<div  class="pt-3" id="comments">
-				
+
 			</div>
 				@foreach($comments as $comment)
 				<div class="row">
@@ -118,7 +118,7 @@
 
 		function showComments(data) {
 			var comments = JSON.parse(data);
-			var str = '<h2 class="comentarios">Comentarios</h2>';
+			var str = '';
 
 			for (let comment of comments) {
 				str += `
