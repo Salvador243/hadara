@@ -133,11 +133,11 @@
         </main>
     </div>
 
-    <nav class="bg-white fixed-bottom shadow- mb-0 mt-5">
+    <footer class="footer-new bg-white shadow- mb-0 mt-5">
         <p class="text-center text-muted my-2">
             <small>&copy;Gallery. Todos los derechos reservados 2021.</small>
         </p>
-    </nav>
+    </footer>
 </body>
 
 <script>

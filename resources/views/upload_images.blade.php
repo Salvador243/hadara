@@ -10,15 +10,17 @@
 		enctype="multipart/form-data">
 		@csrf
 		<div 
-		class="rounded row justify-content-center col-12 my-5 pleca">
+		class="rounded row justify-content-center col-md-12 my-5 pleca">
 		<div class="col-lg-5 my-5">
-			<div class="card rounded">
-				<div class="card-body-new">
-					<input class="rounded form-control" type="file" name="img_name">
+			<div class="card2 rounded form-group">
+				<div class="my-5 file-select-2 centrado">
+					<input type="file" name="img_name" aria-label="Archivo">
 				</div>
 			</div>
 		</div>
-		<div class="linea"></div>
+		<div class="col-md-1">
+			<div class="linea"></div>
+		</div>
 		<div class="col-lg-5">
 			<div class="input-group">
 				<input type="text" class="rounded form-control my-4" name="title" 
@@ -40,24 +42,6 @@
 		</div>
 
 	</div>
-
-		{{-- <div class="form-group">
-			<label for="">sube la foto</label>
-			<input type="file" class="form-control-file" name="img_name">
-		</div>
-
-		<div class="form-group">
-			<label for="">inserta titulo</label>
-			<input type="text" name="title">
-		</div>
-
-		<div class="form-group">
-			<label for="">inserta descripcion</label>
-			<input type="text" name="description">
-		</div> --}}
-
-
-		{{-- <button type="submit" class="btn btn-info">subir</button> --}}
 
 	</form>
 </div>

@@ -50,6 +50,104 @@ html {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+.btn-eliminar{
+  color: #c71c1b;
+  top: 8%;
+  left: 5%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  background-color: transparent !important;
+  border: none;
+}
+.rounded-new {
+  border-radius: 1.40rem !important;
+}
+.card2 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: rgba(255, 255, 255, 0.25);
+  background-clip: border-box;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='9' ry='9' stroke='%23D3D3D3FF' stroke-width='5' stroke-dasharray='24' stroke-dashoffset='19' stroke-linecap='square'/%3e%3c/svg%3e");
+  border-radius: 9px;
+  height: 17rem;
+}
+
+.text-pleca {
+  color: #d3d3d3 !important;
+  font-size: 1.4rem;
+}
+.centrado{
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+}
+/*inicio del ejemplo*/
+.footer-new {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.file-select {          
+  position: relative;
+  display: flex;
+}
+ 
+.file-select::before {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: white;
+  display: flex;            
+  justify-content: center;
+  align-items: center;
+  content: 'Seleccionar Archivo';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;                
+}
+.file-select input[type="file"] {
+  opacity: 0;
+  width: 200px;
+  height: 32px;
+  display: inline-block;            
+}
+
+.file-select-2 {          
+  position: relative;
+  display: flex;
+}
+ 
+.file-select-2::before {
+  color: white;
+  display: flex;            
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  content: 'Seleccionar Archivo';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;                
+}
+.file-select-2 input[type="file"] {
+  opacity: 0;
+  width: 200px;
+  height: 32px;
+  display: inline-block;            
+}
+ 
+/*aqui termina el ejemplo*/
+
+
+.border-none{
+  border: none;
+}
 .custom-file-upload {
     border: 1px solid #ccc;
     display: inline-block;
@@ -58,12 +156,12 @@ html {
 }
 
 .linea{
-    border-left: 3px solid rgba(211, 211, 211, 0.5);
-    height: 80%;
+    border-left: 4px solid rgba(211, 211, 211, 0.5);
+    height: 75%;
     position: absolute;
     left: 50%;
-    margin-top: 3%;
-    margin-left: -3px;
+    margin-top: 25%;
+    margin-left: -6px;
     top: 0;
 }
 .card-body-new {
@@ -2149,14 +2247,12 @@ pre code {
   background: rgba(255, 255, 255, 0.25);
   display: block;
   width: 100%;
-  height: calc(1.6em + 0.75rem + 2px);
-  padding: 0.375rem 0.75rem;
+  padding: 1.4rem;
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
   color: #d3d3d3;
   background-clip: padding-box;
-
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3896,18 +3992,16 @@ input[type=button].btn-block {
 .input-group-text {
   display: flex;
   align-items: center;
-  padding: 0.375rem 0.75rem;
+  padding: 1rem;
   margin-bottom: 0;
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
-  color: #495057;
+  color: #d3d3d3;
   text-align: center;
   white-space: nowrap;
-  background-color: #e9ecef;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-  width: 30%;
+  background-color: rgba(255, 255, 255, 0.50);
+  width: 35%;
 }
 
 .input-group-text input[type=radio],
@@ -5007,7 +5101,7 @@ input[type=button].btn-block {
   background-color: rgba(255, 255, 255, 0.25);
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
+  border-radius: 0.50rem;
 }
 
 .card > hr {
@@ -7200,7 +7294,7 @@ button.bg-dark:focus {
 }
 
 .rounded {
-  border-radius: 0.75rem !important;
+  border-radius: 0.50rem !important;
 }
 
 .rounded-top {
@@ -7229,9 +7323,13 @@ button.bg-dark:focus {
 
 .rounded-circle {
   border-radius: 50% !important;
-  width: auto;
-  height: 30%;
-  background-color: #d3d3d3;
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 
 .rounded-pill {
@@ -10768,7 +10866,8 @@ a.text-primary:focus {
 }
 
 .text-secondary {
-  color: #6c757d !important;
+  color: #d3d3d3 !important;
+  font-size: 15px;
 }
 
 a.text-secondary:hover,

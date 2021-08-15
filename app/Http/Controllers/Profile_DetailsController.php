@@ -21,7 +21,7 @@ class Profile_DetailsController extends Controller
 
     public function details(){
         $data = User::where('id', Auth::user()->id)->with('pictures')->first();
-
+        
         return view('profile_details')->with([
             'data' => $data,
         ]);

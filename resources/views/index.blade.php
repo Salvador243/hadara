@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div id="results">
+        <div class="card-columns" id="results">
 
         </div>
         <div id="pagination_controls" class="mb-5 d-flex justify-content-center">
@@ -49,15 +49,15 @@
                 } else {
                     //If the results type are picture
                     if (type) {
-                        str = `<div class="row row-cols-3">`;
+                        str = ``;
                         for (let picture of results) {
-                            str += `<div class="col my-3">
+                            str += `<div class="card">
                                     <a href="/picture_details/${picture.id}">
-                                        <img class="d-block w-100 shadow" src="${picture.image}">
+                                        <img class="card-img-top" src="${picture.image}">
                                     </a>
                                 </div>`;
                         }
-                        str += `</div>`;
+                        str += ``;
                         //If the results type are profiles
                     } else {
                         for (let profile of results) {
