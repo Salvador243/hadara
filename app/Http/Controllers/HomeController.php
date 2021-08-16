@@ -32,6 +32,6 @@ class HomeController extends Controller
             ->orwhere('description', 'like', '%'.$request->input('search').'%');
         }
 
-        return json_encode([$results->paginate(6), $type]);
+        return json_encode([$results->paginate(50), $type]);
     }
 }

@@ -6,8 +6,8 @@
 
         </div>
         <div id="pagination_controls" class="mb-5 d-flex justify-content-center">
-            <button id="btn_prev" class="btn btn-primary mr-2" disabled>Previous</button>
-            <button id="btn_next" class="btn btn-primary" disabled>Next</button>
+            <button id="btn_prev" class="btn btn-danger mr-2" disabled>Previous</button>
+            <button id="btn_next" class="btn btn-danger" disabled>Next</button>
         </div>
     </div>
 
