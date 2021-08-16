@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container mt-5">
         <div class="card-columns" id="results">
 
         </div>
+
         <div id="pagination_controls" class="mb-5 d-flex justify-content-center">
             <button id="btn_prev" class="btn btn-danger mr-2" disabled>Previous</button>
             <button id="btn_next" class="btn btn-danger" disabled>Next</button>
@@ -49,6 +50,7 @@
                 } else {
                     //If the results type are picture
                     if (type) {
+                        $("#results").attr("class", "card-columns");
                         str = ``;
                         for (let picture of results) {
                             str += `<div class="card">
@@ -60,19 +62,26 @@
                         str += ``;
                         //If the results type are profiles
                     } else {
+                        $("#results").attr("class", "row");
                         for (let profile of results) {
                             str += `
                             <!--User's presentation card-->
-                            <div class="card shadow mt-2">
-                                <div class="row">
+                            <div class="col-12 col-lg-5 card shadow profile-card m-2">
+                                <div class="row row-cols-3">
                                     <!--Avatar-->
-                                    <div class="col-2 d-flex justify-content-center m-0 p-0">
-                                        <img width="70%" class="align-self-center p-2" src="${profile.avatar}">
+                                    <div class="col d-flex justify-content-center m-0 p-0">
+                                        <img width="70px" height="70px" class="avatar align-self-center rounded-profile my-1" src="${profile.avatar}">
                                     </div>
                                     <!--Information-->
-                                    <div class="col-10 card-body m-0 p-1 align-self-center">
-                                        <h5 class="card-title">${profile.name}</h5>
+                                    <div class="col card-body p-1 align-self-center">
+                                        <h5 class="card-title mt-3">${profile.name}</h5>
+                                    
+                                        <a href="/profiles/${profile.id}" class="btn btn-danger mt-1">Ver perf&iacute;l</a>
+                                    </div>
+                                </div>
+                            </div>
                         `;
+                            /*
                             if (profile.enableSignature) {
                                 str += `
                                 <blockquote class="blockquote mb-0">
@@ -82,11 +91,8 @@
                                 </blockquote>
                             `;
                             }
-                            str += `<a href="/profiles/${profile.id}" class="btn btn-primary mt-3">View Profile</a>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
+                            str += 
+                        `;*/
                         }
                     }
                 }

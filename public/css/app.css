@@ -5469,7 +5469,17 @@ input[type=button].btn-block {
     orphans: 1;
     widows: 1;
   }
-
+/*
+  @media (min-width: 768px) {
+    .card-columns {
+      -moz-column-count: 3;
+      column-count: 3;
+      -moz-column-gap: 1.25rem;
+      column-gap: 1.25rem;
+      orphans: 1;
+      widows: 1;
+    }
+*/
   .card-columns .card {
     display: inline-block;
     width: 100%;
@@ -7495,6 +7505,21 @@ button.bg-dark:focus {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+}
+
+.rounded-profile {
+  border-radius: 50% !important;
+  display: inline-block;
+}
+
+.btn-profile{
+  width: 100% !important;
+}
+
+.profile-card {
+  background-color: #10131A !important;
+  color: #D3D3D3 !important;
+  padding: 5px !important;
 }
 
 .rounded-pill {
