@@ -57,7 +57,11 @@
 					<img src="https://img.icons8.com/fluency/48/000000/google-logo.png"/>
 				</a>
 			</div>
-
+		<div class="col-auto">
+			<div class="d-flex justify-content-center">
+				<h2 class="line-div description"><span class="text-pleca">Or</span></h2>
+			</div>
+		</div>
 		</form>
 	</div>
 </div>

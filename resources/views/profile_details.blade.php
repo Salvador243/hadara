@@ -8,7 +8,7 @@
 		<img  class="rounded-circle mx-auto d-block mb-4 avatar" 
 		src="{{asset($data->avatar)}}">
 		@if($data->email == Auth::user()->email || Auth::user()->hasrole('admin') )
-		<div class="row justify-content-center d-flex align-items-center">
+		<div class="row justify-content-center d-flex">
 			<p class="align-self-center text-pleca text-center">{{Auth::user()->name}}</p>
 			<form action="{{ route( 'Eprofile', $data->email) }}" method="post">
 				@csrf

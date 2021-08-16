@@ -12,10 +12,10 @@
 			class="card-img-top">        
 		</div>
 		{{-- second column --}}
-		<div class="col-md">
+		<div class="col-md-auto">
 			<div class="container pt-3">
 				<div class="row pb-5">
-					<div class="col-md">
+					<div class="col-md-auto">
 						@auth
 						<a class="icon-details pr-4" href="{{ asset($picture->image) }}" download>
 							<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
