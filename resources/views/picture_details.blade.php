@@ -12,7 +12,7 @@
 			class="card-img-top">        
 		</div>
 		{{-- second column --}}
-		<div class="col-md">
+		<div class="col-md-6">
 			<div class="container pt-3">
 				<div class="row pb-5">
 					<div class="col-md">
@@ -73,7 +73,7 @@
 							<div class="mb-3">
 								<input type="text" name="user_id" value="{{ Auth::user()->id }}" hidden>
 								<input type="text" name="picture_id" value="{{ $picture->id }}" hidden>
-								<textarea name="comment" cols="40" class="card-comment"
+								<textarea name="comment" cols="24" class="card-comment"
 								placeholder="Write a comment...."></textarea>
 							</div>
 							<button type="submit" class="btn btn-danger">Comentar</button>
