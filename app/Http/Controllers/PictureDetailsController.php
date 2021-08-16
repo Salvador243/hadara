@@ -40,6 +40,7 @@ class PictureDetailsController extends Controller
     
     public function delete($id){
         $picture = Picture::findOrFail($id);
+        unlink(substr($picture->image, 1));
         $picture->delete();
         return back();
     }
