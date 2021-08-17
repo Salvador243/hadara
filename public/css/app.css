@@ -49,6 +49,8 @@
   content: 'Seleccionar Archivo';
 }
 
+
+
 .circle{
   display: inline-block;
   border-radius: 10px;
@@ -268,6 +270,10 @@ html {
 
 .padding-pleca{
   padding: 2rem !important;
+}
+
+.label-input {
+  color: #D3D3D3 !important;
 }
 
 .centrado{
