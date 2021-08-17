@@ -27,10 +27,10 @@ class Controller extends BaseController
         }
     }
 
-    public function downloadAvatar($url){
+    public function downloadAvatar($url, $user_id){
         $ch = curl_init($url);
         $file_name = time().'.jpg';
-        $save_loc = 'storage/'.$file_name;
+        $save_loc = 'storage/uploads/user'.$user_id.'/'.$file_name;
         $fp = fopen($save_loc, 'wb');
   
         curl_setopt($ch, CURLOPT_FILE, $fp);

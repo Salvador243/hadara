@@ -22,11 +22,13 @@ class Profile_EditController extends Controller
   public function update(Request $datos){
     $modify = $datos->all();
     $modify = request()->except(['_token','_method']);
-            $id = Auth::user()->id;        
+    $id = Auth::user()->id;
+    $prev = Auth::user()->img_name;        
 
 
     $image_name = '';
     if ($datos->hasFile('img_name')) {
+        unlink("storage/uploads/user$id/$prev");
         $image = $datos->file('img_name');
         $image_name = time().'.'.$image->getClientOriginalExtension();
         $destinationPath = 'storage/uploads/user'.$id;
