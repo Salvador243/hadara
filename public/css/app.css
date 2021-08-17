@@ -115,6 +115,7 @@ html {
   padding-left: 1.4rem;
   color: #d3d3d3;
   display: flex; 
+  width: 18rem;
 }
 .card-new{
   flex: 1 1 auto;

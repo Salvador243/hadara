@@ -9,7 +9,7 @@
 		src="{{asset($data->avatar)}}">
 		@if($data->email == Auth::user()->email || Auth::user()->hasrole('admin') )
 		<div class="row justify-content-center d-flex">
-			<p class="align-self-center text-pleca text-center">{{Auth::user()->name}}</p>
+			<p class="align-self-center text-pleca text-center">{{$data->name}}</p>
 			<form action="{{ route( 'Eprofile', $data->email) }}" method="post">
 				@csrf
 				<button type="submit" class="btn btn-danger ml-3" href="">Editar Perfil <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">

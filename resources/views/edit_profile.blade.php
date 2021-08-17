@@ -9,10 +9,11 @@
 		<div class="container rounded pleca">
 			<div class="row col-md-12 mt-5">
 				<div class="col-md-6 my-5 justify-content-center">
-					<img  class="rounded-circle mx-auto d-block mb-4" src="{{ asset($data->avatar) }}">
+					<img  class="rounded-circle mx-auto d-block mb-4 avatar" src="{{ asset($data->avatar) }}">
 					{{-- <input class="form-control" type="file" name="img_name"> --}}
-					<div class="col-md-6 my-5 file-select centrado">
-						<input type="file" name="img_name" aria-label="Archivo">
+					<div class="col-sm-12 my-5 px-5">
+						<input id="fichero" type="file" name="img_name">
+						<label for="fichero" class="circle">Seleccionar Archivo</label>
 					</div>
 				</div>
 
