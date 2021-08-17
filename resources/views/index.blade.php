@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <!-- Main container -->
-<div class="container mt-3">
+<div class="container">
     <!-- Results contents -->
     <div class="" id="results">
 

@@ -25,15 +25,15 @@
 <body class="main-pleca">
     <div id="app">
         <!--Navbar-->
-        <nav class="navbar navbar-expand navbar-light nav-pleca shadow-sm py-0">
+        <nav class="navbar navbar-expand navbar-light nav-pleca shadow-sm py-0 mb-5 fixed-top">
             <div class="container">
                 <!--Logo-->
                 <a class="navbar-brand" href="{{ route('index') }}">
                     <img src="/storage/logo.svg" width="60" height="60" class="d-line-block my-0">
                 </a>
-                <!--Navbar items-->
+                <!-- Nav items -->
                 <ul class="navbar-nav ml-auto mr-auto">
-                    <!--search bar-->
+                    <!-- Search bar -->
                     <form action="{{ route('index') }}" method="GET" id="search-form" class="form-inline mr-2">
                         <div class="input-group">
                             <!--Search input-->
@@ -71,13 +71,9 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <!---->
-
                             </div>
                         </div>
                     </form>
-
                     <!-- Authentication Links -->
                     @guest
                     <li class="nav-item">
@@ -106,12 +102,13 @@
                         </a>
                     </li>
                 </ul>
+                <!-- Profile -->
                 <div class="dropdown ml-auto">
                     <a id="userDropdown" class="navbar-brand dropdown-toggle" href="#" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         <img src="{{ asset(Auth::user()->avatar) }}" class="avatar" width="35px" height="30px">
                     </a>
-                    <!--User dropzone options-->
+                    <!--User dropdown options-->
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                         <!--Profile option-->
                         <a href="{{ route('Pdetails', Auth::user()->email) }}" class="dropdown-item">
@@ -131,15 +128,19 @@
             </div>
         </nav>
 
-        <main id="main_container" class="help">
-            @yield('content')
+        <main id="main_container mt-5" class="help">
+            <div class="mt-5 pt-5">
+                @yield('content')
+            </div>
         </main>
     </div>
 
-    <footer class="footer-new mb-0 mt-5">
+    <!-- Footer -->
+    <footer class="footer-new mb-0 mt-3">
         <div class="container pt-4 mb-2" id="footer-cols">
             <div class="d-flex justify-content-center">
-                <div class="footer-col pr-5">
+                <!-- Sitemap column -->
+                <div class="footer-col pr-4 pr-md-5">
                     <b>SITEMAP</b>
                     <ul class="footer-list">
                         <li><a href="/">Home</a></li>
@@ -151,12 +152,11 @@
                         <li><a href="{{ route('Upload') }}">Subir foto</a></li>
                         @endguest
                     </ul>
-
                 </div>
-
-                <div class="footer-col pr-5 pl-5">
+                <!-- Social media column -->
+                <div class="footer-col pr-4 pr-md-5 pl-4 pl-md-4">
                     <div class="d-flex justify-content-between mt-4 mb-4">
-                        <a href="#" id="facebook-icon" class="mr-5">
+                        <a href="#" id="facebook-icon" class="mr-4 mr-md-5">
                             <img src="/storage/Facebook.svg" width="50" height="50" alt="">
                         </a>
 
@@ -165,7 +165,7 @@
 
                         </a>
 
-                        <a href="#" id="twitter-icon" class="ml-5">
+                        <a href="#" id="twitter-icon" class="ml-4 ml-md-5">
                             <img src="/storage/Twitter.svg" width="50" height="50" alt="">
                         </a>
                     </div>
@@ -173,8 +173,8 @@
                         example@gmail.com
                     </p>
                 </div>
-
-                <div class="pl-5">
+                <!-- Developers information column -->
+                <div class="pl-4 pl-md-5">
                     <b>Programadores</b>
                     <ul class="footer-list">
                         <li>Salvador Garc&iacute;a</li>
@@ -189,6 +189,7 @@
                 </div>
             </div>
         </div>
+        <!-- Copyright -->
         <hr id="footer-hr">
         <p class="text-center py-2 mb-0" id="footer-bottom">
             <small class="nav-text">&copy;Copyright 2021, HadarA.</small>
