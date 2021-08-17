@@ -3,8 +3,8 @@
 @section('content')
 
 
-<div class="container pleca col-md-4 my-5 rounded-new padding-pleca">
-    <div class="row justify-content-md-center">
+<div class="container pleca col-md-4 mb-5 rounded-new padding-pleca">
+    <div class="row justify-content-center">
         <img src="{{asset('/storage/logo.svg')}}" weight="150" height="150" alt="">
     </div>
     <div class="container">

@@ -138,7 +138,7 @@ html {
 }
 
 .help {
-    min-height: calc(100vh - 347px);
+    min-height: calc(100vh - 300px);
 }
 
 .line-div {
