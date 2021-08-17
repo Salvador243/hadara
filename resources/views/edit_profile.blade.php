@@ -34,7 +34,7 @@
                         <input type="text" class="form-control rounded-right border-none" placeholder="Signature"
                             value="{{$data->signature}}" name="signature">
                     </div>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <div class="d-grid gap-2 d-flex justify-content-end">
                         <button class="mb-3 btn btn-danger" type="">Actualizar</button>
                     </div>
                 </div>
