@@ -28,6 +28,10 @@
                 <img src="Revista_Mundo deporte3.jpg" class="image-new d-block w-100" alt="...">
             </div>
         </div>
+        <?php
+        
+            echo '<h1>Hola Mundo</h1>';
+        ?>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
             data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
